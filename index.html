@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pippin die Windelfreimaus – Dein Baby verstehen, nicht managen</title>
+<meta name="description" content="Windelfrei als liebevoller Weg, dein Kind wirklich zu lesen. Sichere dir Pippins kostenlose Windelfrei-Starthilfe, den Frühzugang zum Kurs mit Mama Maus und die Warteliste für die neue Hybridwindel." />
+
+<!--
+  ============================================================
+  HERO-HEADLINE — 3 VARIANTEN (eine live, zwei als Backup)
+  ============================================================
+  A: "Dein Baby spricht. Pippin hilft dir, zuzuhören."
+  B (LIVE): "Du musst dein Baby nicht managen. Du darfst es verstehen."
+  C: "Windelfrei ist kein Trockenwerd-Trick. Es ist eure erste Unterhaltung."
+  Empfehlung: B live (Schmerz + Markenkern "verstehen statt leisten"),
+  C als A/B-Kandidat fürs Reichweiten-Reel.
+
+  DESIGN: 100% echtes Pippin-Brandkit — Logo (assets/logo-pippin.png),
+  Aquarell-Maus-Posen, Charakterfamilie, Lavendel #a898c8 + Orange #f87222
+  + Beige #efede5 + Sage #a3b9a3, Schriften Fredoka/Nunito.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --lavender:#a898c8;
+    --lavender-deep:#7e6aa6;
+    --lavender-soft:#ece6f5;
+    --lavender-mid:#cdc0e2;
+    --orange:#f87222;
+    --orange-deep:#e25c10;
+    --beige:#e7cba6;
+    --sand:#efede5;
+    --cream:#f6f2ea;
+    --sage:#a3b9a3;
+    --sage-soft:#dde7dd;
+    --mint:#e6ece4;
+    --terra:#b86d52;
+    --ink:#403a36;
+    --ink-soft:#6b645c;
+    --white:#ffffff;
+    --radius:30px;
+    --radius-sm:18px;
+    --shadow:0 22px 60px rgba(126,106,166,.16);
+    --shadow-sm:0 10px 30px rgba(126,106,166,.13);
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--ink);
+    background:var(--cream);line-height:1.66;font-size:18px;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.fred{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1.14;color:var(--ink);}
+  h1{font-size:clamp(2.15rem,5.6vw,3.7rem);letter-spacing:-.4px;}
+  h2{font-size:clamp(1.75rem,4vw,2.7rem);letter-spacing:-.3px;margin:0 0 .5em;}
+  h3{font-size:clamp(1.25rem,2.5vw,1.55rem);margin:0 0 .35em;}
+  p{margin:0 0 1.1em;}
+  a{color:var(--lavender-deep);}
+  .script{font-family:'Caveat',cursive;font-weight:700;color:var(--orange);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  section{padding:clamp(58px,9vw,108px) 0;position:relative;overflow:hidden;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+    background:var(--orange);color:#fff;text-decoration:none;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.08rem;
+    padding:16px 34px;min-height:54px;border-radius:999px;border:none;cursor:pointer;
+    box-shadow:0 12px 26px rgba(248,114,34,.32);
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;text-align:center;line-height:1.2;
+  }
+  .btn:hover{background:var(--orange-deep);transform:translateY(-2px);box-shadow:0 16px 32px rgba(248,114,34,.4);}
+  .btn--lav{background:var(--lavender);box-shadow:0 12px 26px rgba(168,152,200,.4);}
+  .btn--lav:hover{background:var(--lavender-deep);box-shadow:0 16px 32px rgba(126,106,166,.45);}
+  .btn--ghost{background:#fff;color:var(--lavender-deep);box-shadow:var(--shadow-sm);border:2px solid var(--lavender-mid);padding:14px 30px;}
+  .btn--ghost:hover{background:var(--lavender-soft);transform:translateY(-2px);}
+  .btn--block{width:100%;}
+
+  /* ---------- Header ---------- */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(246,242,234,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(168,152,200,.18);}
+  .site .wrap{display:flex;align-items:center;justify-content:space-between;padding:11px 22px;gap:14px;}
+  .brand{display:flex;align-items:center;text-decoration:none;}
+  .brand img{height:62px;width:auto;display:block;}
+  header .btn{padding:11px 22px;min-height:44px;font-size:.98rem;box-shadow:0 8px 18px rgba(248,114,34,.3);}
+  @media(max-width:520px){.brand img{height:46px;} header .btn{padding:10px 17px;font-size:.92rem;}}
+
+  /* ---------- Hero ---------- */
+  .hero{background:
+      radial-gradient(90% 80% at 86% 0%, rgba(168,152,200,.28) 0%, rgba(168,152,200,0) 60%),
+      radial-gradient(80% 70% at 0% 100%, rgba(163,185,163,.26) 0%, rgba(163,185,163,0) 55%),
+      var(--cream);}
+  .hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:36px;align-items:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(168,152,200,.3);
+    color:var(--lavender-deep);font-weight:700;font-size:.86rem;letter-spacing:.3px;padding:7px 16px;border-radius:999px;margin-bottom:22px;box-shadow:var(--shadow-sm);}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);}
+  .hero h1 .hl{color:var(--lavender-deep);}
+  .hero h1 .hl2{color:var(--orange);}
+  .hero p.lead{font-size:1.22rem;color:var(--ink-soft);max-width:34ch;margin-top:18px;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;align-items:center;}
+  .bridge{margin-top:24px;font-size:.96rem;color:var(--ink-soft);display:flex;align-items:center;gap:9px;font-weight:600;}
+  .bridge svg{width:20px;height:20px;flex:none;color:var(--lavender-deep);}
+  .hero-art{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px;}
+  .hero-blob{position:absolute;width:min(450px,88vw);aspect-ratio:1;border-radius:46% 54% 52% 48%/54% 46% 54% 46%;
+    background:radial-gradient(circle at 50% 40%, #fff 0%, var(--lavender-soft) 70%, #e3d9f0 100%);box-shadow:var(--shadow);}
+  .hero-blob::after{content:"";position:absolute;inset:-16px;border-radius:inherit;border:2px dashed rgba(168,152,200,.4);}
+  .hero-mouse{position:relative;width:min(300px,66vw);filter:drop-shadow(0 18px 24px rgba(126,106,166,.22));}
+  .float-badge{position:absolute;background:#fff;border-radius:18px;box-shadow:var(--shadow-sm);padding:10px 15px;
+    font-family:'Fredoka',sans-serif;font-weight:500;font-size:.92rem;display:flex;align-items:center;gap:8px;z-index:3;}
+  .float-badge .em{font-size:1.15rem;}
+  .fb-1{top:34%;left:-7%;color:var(--lavender-deep);}
+  .fb-2{bottom:7%;right:-5%;color:var(--terra);}
+  @media(max-width:880px){
+    .hero .wrap{grid-template-columns:1fr;text-align:center;gap:20px;}
+    .hero p.lead{margin-left:auto;margin-right:auto;}
+    .hero-cta,.bridge{justify-content:center;}
+    .hero-art{order:-1;min-height:340px;}
+    .fb-1{left:2%;}.fb-2{right:2%;}
+  }
+
+  /* ---------- Helpers ---------- */
+  .kicker{text-transform:uppercase;letter-spacing:2px;font-size:.8rem;font-weight:800;color:var(--lavender-deep);margin-bottom:12px;}
+  .center{text-align:center;}.center .lead{max-width:60ch;margin-left:auto;margin-right:auto;}
+  .lead{font-size:1.18rem;color:var(--ink-soft);}
+  .bg-white{background:var(--white);}
+  .bg-sand{background:var(--sand);}
+  .bg-sage{background:linear-gradient(180deg,var(--mint),var(--sage-soft));}
+  .bg-lav{background:linear-gradient(165deg,#8a76b0,var(--lavender-deep));color:#f3eefb;}
+  .bg-lav h2,.bg-lav h3{color:#fff;}.bg-lav .kicker{color:#e4d8f6;}
+
+  /* ---------- Voices ---------- */
+  .voices{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:42px;text-align:left;}
+  .voice{background:var(--cream);border-radius:var(--radius-sm);padding:24px 26px 24px 44px;font-size:1.1rem;font-weight:600;color:var(--ink);position:relative;border-left:5px solid var(--lavender);}
+  .voice::before{content:"„";font-family:'Fredoka';font-size:2.6rem;color:var(--lavender);position:absolute;top:2px;left:14px;opacity:.55;}
+  @media(max-width:680px){.voices{grid-template-columns:1fr;}}
+
+  /* ---------- Reframe ---------- */
+  .reframe-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;}
+  .reframe-list{display:grid;gap:13px;margin:26px 0 0;padding:0;list-style:none;max-width:54ch;}
+  .reframe-list li{display:flex;gap:13px;align-items:flex-start;font-size:1.1rem;}
+  .reframe-list .x{color:#f3c7a8;font-weight:800;flex:none;}
+  .reframe-big{font-family:'Fredoka';font-weight:500;font-size:clamp(1.45rem,3.4vw,2.1rem);line-height:1.28;margin-top:34px;color:#fff;}
+  .reframe-big em{font-style:normal;color:#ffd9c4;}
+  .reframe-art{display:flex;justify-content:center;}
+  .reframe-art img{width:min(230px,60vw);filter:drop-shadow(0 14px 20px rgba(0,0,0,.18));}
+  @media(max-width:820px){.reframe-grid{grid-template-columns:1fr;}.reframe-art{order:-1;}}
+
+  /* ---------- Story ---------- */
+  .story-card{background:#fff;border-radius:var(--radius);padding:clamp(28px,5vw,54px);box-shadow:var(--shadow-sm);max-width:780px;margin:0 auto;text-align:center;}
+  .story-card img.mface{width:120px;margin:0 auto 6px;display:block;}
+  .story-card p{font-size:1.15rem;}
+  .values{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px;}
+  .values .v{background:var(--lavender-soft);color:var(--lavender-deep);font-family:'Fredoka';font-weight:500;font-size:1rem;padding:9px 18px;border-radius:999px;display:flex;align-items:center;gap:7px;}
+  .values .v::before{content:"💜";font-size:.85rem;}
+
+  /* ---------- Characters ---------- */
+  .fam-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:44px;}
+  .fam-card{background:var(--cream);border-radius:var(--radius-sm);padding:18px 12px 20px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .18s ease;}
+  .fam-card:hover{transform:translateY(-4px);}
+  .fam-card .imgwrap{height:128px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:12px;}
+  .fam-card img{max-height:128px;max-width:100%;width:auto;filter:drop-shadow(0 7px 9px rgba(126,106,166,.2));}
+  .fam-card b{font-family:'Fredoka';font-weight:600;color:var(--lavender-deep);display:block;font-size:1.02rem;}
+  .fam-card small{color:var(--ink-soft);font-size:.82rem;line-height:1.42;display:block;margin-top:4px;}
+  @media(max-width:880px){.fam-grid{grid-template-columns:repeat(3,1fr);gap:16px;}}
+  @media(max-width:560px){.fam-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Offerings ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px;text-align:left;}
+  .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease;}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .card-top{position:relative;height:170px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .card-top img.photo{width:100%;height:100%;object-fit:cover;}
+  .card-top.c-lav{background:radial-gradient(circle at 50% 35%,#fff,var(--lavender-soft));}
+  .card-top.c-sage{background:radial-gradient(circle at 50% 35%,#fff,var(--sage-soft));}
+  .card-top img.mouse{height:140px;width:auto;filter:drop-shadow(0 10px 14px rgba(126,106,166,.22));}
+  .card-body{padding:26px 26px 30px;display:flex;flex-direction:column;flex:1;}
+  .tag{align-self:flex-start;font-size:.74rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;background:var(--lavender-soft);color:var(--lavender-deep);padding:5px 12px;border-radius:999px;margin-bottom:14px;}
+  .card.c2 .tag{background:#fde2d2;color:var(--orange-deep);}
+  .card.c3 .tag{background:var(--sage-soft);color:#5f7b5f;}
+  .card h3{font-size:1.3rem;}
+  .card p{font-size:1.01rem;color:var(--ink-soft);}
+  .card .price{font-family:'Fredoka';font-weight:600;color:var(--ink);font-size:1.15rem;margin:2px 0 14px;}
+  .card .price small{font-weight:500;color:var(--ink-soft);font-size:.84rem;}
+  .card ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:9px;}
+  .card ul li{display:flex;gap:9px;font-size:.97rem;align-items:flex-start;}
+  .card ul li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lavender);margin-top:8px;flex:none;}
+  .card.c2 ul li::before{background:var(--orange);}
+  .card.c3 ul li::before{background:var(--sage);}
+  .card .card-cta{margin-top:auto;}
+  @media(max-width:880px){.cards{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto;}}
+
+  /* ---------- About ---------- */
+  .about{display:grid;grid-template-columns:.78fr 1.22fr;gap:48px;align-items:center;}
+  .about-photo{display:flex;justify-content:center;}
+  .about-photo img{width:min(320px,76vw);border-radius:50%;box-shadow:var(--shadow);}
+  .creds{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px;}
+  .chip{background:var(--lavender-soft);color:var(--lavender-deep);font-weight:700;font-size:.82rem;padding:6px 13px;border-radius:999px;}
+  .trust-row{display:flex;flex-wrap:wrap;gap:20px;margin-top:24px;}
+  .trust-row div{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.92rem;color:var(--ink-soft);}
+  .trust-row svg{width:22px;height:22px;color:var(--sage);flex:none;}
+  @media(max-width:820px){.about{grid-template-columns:1fr;text-align:center;}.about-photo{order:-1;}.creds,.trust-row{justify-content:center;}}
+
+  /* ---------- Windel USP ---------- */
+  .windel{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;}
+  .windel-photo img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow-sm);display:block;}
+  .usp-list{display:grid;gap:16px;margin-top:26px;}
+  .usp-list .u{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:var(--radius-sm);padding:18px 20px;box-shadow:var(--shadow-sm);}
+  .usp-list .u .badge{font-family:'Fredoka';font-weight:600;font-size:1.1rem;color:#fff;background:var(--orange);min-width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;text-align:center;line-height:1.1;}
+  .usp-list .u:nth-child(2) .badge{background:var(--lavender);}
+  .usp-list .u:nth-child(3) .badge{background:var(--sage);}
+  .usp-list .u h3{font-size:1.12rem;margin-bottom:2px;}
+  .usp-list .u p{font-size:.96rem;color:var(--ink-soft);margin:0;}
+  @media(max-width:820px){.windel{grid-template-columns:1fr;}.windel-photo{order:-1;}}
+
+  /* ---------- Signup ---------- */
+  .signup{background:
+      radial-gradient(70% 60% at 90% 0%,rgba(168,152,200,.22),transparent 60%),
+      linear-gradient(180deg,#fbf8f3,var(--sand));}
+  .signup-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;}
+  .gift-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px;}
+  .gift-list li{display:flex;gap:14px;align-items:flex-start;font-size:1.06rem;font-weight:600;}
+  .gift-list .g-ico{font-size:1.45rem;flex:none;line-height:1.2;}
+  .gift-list small{display:block;font-weight:500;color:var(--ink-soft);font-size:.92rem;}
+  .form-card{background:#fff;border-radius:var(--radius);padding:clamp(26px,4vw,40px);box-shadow:var(--shadow);border:1px solid rgba(168,152,200,.16);}
+  .form-card h3{font-size:1.5rem;margin-bottom:6px;}
+  .form-card .sub{color:var(--ink-soft);margin-bottom:22px;font-size:1rem;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px;color:var(--ink);}
+  .field input{width:100%;padding:15px 17px;border-radius:14px;border:2px solid #e8e1d4;font-family:'Nunito';font-size:1rem;background:var(--cream);transition:border .15s,background .15s;}
+  .field input:focus{outline:none;border-color:var(--lavender);background:#fff;}
+  .checks{display:grid;gap:10px;margin:6px 0 20px;}
+  .checks span.lbl{font-weight:700;font-size:.9rem;color:var(--ink);}
+  .check{display:flex;gap:11px;align-items:flex-start;background:var(--cream);border-radius:13px;padding:12px 14px;cursor:pointer;border:2px solid transparent;transition:border .15s;}
+  .check:hover{border-color:var(--lavender-mid);}
+  .check input{margin-top:4px;width:18px;height:18px;accent-color:var(--orange);flex:none;}
+  .check b{font-family:'Fredoka';font-weight:500;font-size:1rem;}
+  .check small{display:block;color:var(--ink-soft);font-size:.86rem;}
+  .privacy{font-size:.82rem;color:var(--ink-soft);margin-top:14px;text-align:center;}
+  .form-success{display:none;text-align:center;padding:14px 0;}
+  .form-success.show{display:block;}
+  .form-success img{width:130px;margin:0 auto 8px;display:block;}
+  .form-success h3{color:var(--orange);}
+  @media(max-width:820px){.signup-grid{grid-template-columns:1fr;gap:34px;}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#cfc7be;padding:46px 0 34px;font-size:.92rem;}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px;align-items:center;}
+  footer img.flogo{height:64px;width:auto;background:#fff;border-radius:18px;padding:8px 12px;}
+  footer a{color:#e6b89c;text-decoration:none;}
+  footer .links{display:flex;gap:22px;flex-wrap:wrap;}
+  footer .copy{width:100%;border-top:1px solid #514b44;padding-top:18px;color:#938c83;font-size:.84rem;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Pippin die Windelfreimaus – Startseite">
+      <img src="assets/logo-pippin.png" alt="Pippin die Windelfreimaus" />
+    </a>
+    <a class="btn" href="#dabei">Kostenlos dabei sein</a>
+  </div>
+</header>
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy reveal">
+      <!-- LIVE = Variante B -->
+      <h1>Du musst dein Baby nicht <span class="hl2">managen</span>.<br/>Du darfst es <span class="hl">verstehen</span>.</h1>
+      <p class="lead">Windelfrei – kein Trockenwerd-Trick, kein Supermama-Projekt. Sondern der erste liebevolle Weg, die Signale deines Kindes wirklich zu lesen. Sanft, undogmatisch, in eurem Tempo.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#dabei">Jetzt kostenlos dabei sein</a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="hero-blob"></div>
+      <img class="hero-mouse" src="assets/pippin-front.png" alt="Pippin die Windelfreimaus" />
+      <div class="float-badge fb-1"><span class="em">💜</span> Verbindung statt Druck</div>
+      <div class="float-badge fb-2"><span class="em">🌿</span> Aus Deutschland · von einer Windelfrei-Beraterin entwickelt</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INNERE STIMMEN ============ -->
+<section class="bg-white">
+  <div class="wrap center">
+    <p class="kicker reveal">Kennst du diese Gedanken?</p>
+    <h2 class="reveal">Du machst doch eigentlich alles richtig.<br/>Und trotzdem nagt dieses Gefühl.</h2>
+    <p class="lead reveal">Du liest, du fragst, du gibst alles. Und manchmal stehst du trotzdem da und weißt nicht, was dein Baby gerade von dir braucht. Das macht dich nicht zu einer schlechten Mama – es macht dich zu einer, die genauer hinschauen möchte.</p>
+    <div class="voices">
+      <div class="voice reveal">Warum weint mein Baby, obwohl ich doch alles mache?</div>
+      <div class="voice reveal">Übersehe ich vielleicht ein Signal, das ich nicht kenne?</div>
+      <div class="voice reveal">Kann ich meinem Bauchgefühl wirklich vertrauen?</div>
+      <div class="voice reveal">Ist Windelfrei nicht einfach viel zu viel für mich?</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFRAME (Haltung) ============ -->
+<section class="bg-lav">
+  <div class="wrap reframe-grid">
+    <div class="reveal">
+      <p class="kicker">Pippins Haltung</p>
+      <h2>Windelfrei ist nicht das, was du denkst.</h2>
+      <ul class="reframe-list">
+        <li><span class="x">✕</span> Kein Trockenwerd-Tool, das früher „funktionieren" muss.</li>
+        <li><span class="x">✕</span> Kein Öko-Wettbewerb, bei dem du etwas beweisen musst.</li>
+        <li><span class="x">✕</span> Kein Supermama-Projekt mit Perfektionsdruck.</li>
+        <li><span class="x">✕</span> Und ganz sicher kein weiterer Punkt auf deiner To-do-Liste.</li>
+      </ul>
+      <p class="reframe-big">Windelfrei ist die <em>erste Sprache</em> zwischen euch.<br/>Bei Pippin geht es nicht darum, mehr zu <em>leisten</em> –<br/>sondern mehr zu <em>verstehen</em>.</p>
+      <p style="margin-top:24px;font-size:1.08rem;max-width:58ch;">Pausen sind erlaubt. Rückschritte sind kein Scheitern, sondern Beziehung. Du darfst ausprobieren, pausieren und neu anfangen – ohne dich festzulegen.</p>
+    </div>
+    <div class="reframe-art reveal">
+      <img src="assets/pippin-sit.png" alt="Pippin sitzt" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIPPIN-STORY ============ -->
+<section class="bg-sage">
+  <div class="wrap">
+    <div class="story-card reveal">
+      <img class="mface" src="assets/pippin-face.png" alt="Pippin" />
+      <p class="script" style="font-size:1.6rem;margin-bottom:.2em;">Es war einmal eine kleine Maus …</p>
+      <p>… die spürte ganz genau, was die Kinder brauchten – noch bevor sie es selbst in Worte fassen konnten. Sie hörte das leise Zappeln, das kurze Innehalten, den Blick, der etwas sagen wollte. Diese Maus heißt <strong>Pippin</strong>. Und an ihrer Seite steht <strong>Mama Maus</strong> – liebevoll, achtsam, immer an Pippins Seite.</p>
+      <p style="margin-bottom:0;">Pippin steht für alles, woran wir glauben: dass Kinder ihre Körperwahrnehmung behalten dürfen – und dass Eltern wieder vertrauen lernen, dass sie ihr Kind lesen <em>können</em>.</p>
+      <div class="values">
+        <span class="v">Vertrauen</span><span class="v">Verbindung</span><span class="v">Geduld</span><span class="v">Achtsamkeit</span><span class="v">Gemeinsam wachsen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHARAKTERFAMILIE ============ -->
+<section class="bg-white">
+  <div class="wrap center">
+    <p class="kicker reveal">Lerne Pippins Welt kennen</p>
+    <h2 class="reveal">Eine ganze Familie, die euch begleitet</h2>
+    <p class="lead reveal">Pippin ist nie allein – und du auch nicht. In Pippins Welt lernt dein Kind Geschichten, Mut und Verbindung kennen, ganz auf Kinder-Augenhöhe.</p>
+    <div class="fam-grid reveal">
+      <div class="fam-card"><div class="imgwrap"><img src="assets/char-pippin.png" alt="Pippin Maus" /></div><b>Pippin Maus</b><small>die Windelfreimaus</small></div>
+      <div class="fam-card"><div class="imgwrap"><img src="assets/char-mama.png" alt="Mama Maus" /></div><b>Mama Maus</b><small>liebevoll &amp; achtsam, immer an Pippins Seite</small></div>
+      <div class="fam-card"><div class="imgwrap"><img src="assets/char-papa.png" alt="Papa Maus" /></div><b>Papa Maus</b><small>spielerisch, lustig &amp; Pippins größter Fan</small></div>
+      <div class="fam-card"><div class="imgwrap"><img src="assets/char-lotti.png" alt="Lotti Hase" /></div><b>Lotti Hase</b><small>Pippins beste Freundin, schon windelfrei</small></div>
+      <div class="fam-card"><div class="imgwrap"><img src="assets/char-hugo.png" alt="Hugo Igel" /></div><b>Hugo Igel</b><small>neugierig, skeptisch, stellt viele Fragen</small></div>
+      <div class="fam-card"><div class="imgwrap"><img src="assets/char-oma.png" alt="Oma Eule" /></div><b>Oma Eule</b><small>weise, geduldig, weiß immer einen Rat</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIPPINS WELT (3 Angebote) ============ -->
+<section id="welt" class="bg-sand">
+  <div class="wrap center">
+    <p class="kicker reveal">Pippins Welt entsteht gerade</p>
+    <h2 class="reveal">Drei Wege, dein Kind besser zu verstehen</h2>
+    <p class="lead reveal">Pippin wird neu aufgebaut – mit Liebe, Schritt für Schritt. Trag dich einmal ein und du bist bei allem von Anfang an dabei: dem Kurs, der Windel und dem Buch.</p>
+    <div class="cards">
+      <!-- Kurs -->
+      <div class="card c1 reveal">
+        <div class="card-top c-lav"><img class="mouse" src="assets/pippin-jump.png" alt="Pippin hüpft vor Freude" /></div>
+        <div class="card-body">
+          <span class="tag">Bald · Frühzugang sichern</span>
+          <h3>Der Windelfrei-Kurs mit Mama Maus</h3>
+          <p>Dein Onlinekurs für einen sanften, alltagstauglichen Windelfrei-Start – und dazu <strong>Mama Maus, deine KI-Begleiterin</strong>. Du kannst sie jederzeit alles fragen, Tag und Nacht, wenn der Kopf voller Fragen ist.</p>
+          <ul>
+            <li>Schritt für Schritt vom ersten Abhalten in den Alltag</li>
+            <li>Mama Maus antwortet dir rund um die Uhr – geduldig &amp; ohne Wertung</li>
+            <li>Fokus auf Verbindung &amp; Signale, nicht auf Leistung</li>
+          </ul>
+          <a class="btn btn--lav btn--block card-cta" href="#dabei">Frühzugang sichern</a>
+        </div>
+      </div>
+      <!-- Windel -->
+      <div class="card c2 reveal">
+        <div class="card-top"><img class="photo" src="assets/foto-windeln.jpg" alt="Pippin Stoffwindeln" /></div>
+        <div class="card-body">
+          <span class="tag">Warteliste · Shop-Relaunch</span>
+          <h3>Die Pippin Hybrid-Abhaltewindel</h3>
+          <div class="price">29,90 € <small>· Newborn &amp; OneSize</small></div>
+          <p>Die einzige Stoffwindel aus extrem pflegeleichtem PUL, die <strong>Abhaltewindel UND normale Stoffwindel in einem</strong> ist – umgeknöpft, wie eure Familie sie heute gerade braucht.</p>
+          <ul>
+            <li>2-in-1: abhalten oder klassisch wickeln – du entscheidest spontan</li>
+            <li>Extrem pflegeleichtes PUL – alltagstauglich &amp; schnell trocken</li>
+            <li>Aus Deutschland – von einer Windelfrei- &amp; Baby-Beraterin entwickelt</li>
+          </ul>
+          <a class="btn btn--block card-cta" href="#dabei">Auf die Warteliste</a>
+        </div>
+      </div>
+      <!-- Buch -->
+      <div class="card c3 reveal">
+        <div class="card-top c-sage"><img class="mouse" src="assets/pippin-sit.png" alt="Pippin sitzt" /></div>
+        <div class="card-body">
+          <span class="tag">Vormerken · Vorbestellung</span>
+          <h3>Das Pippin-Kinderbuch</h3>
+          <p>Die Geschichte der kleinen Windelfreimaus – liebevoll erzählt für Kinder, die ihren Körper entdecken und ihre Signale verstehen lernen. Zum Vorlesen, Kuscheln und Großwerden.</p>
+          <ul>
+            <li>Pippins Welt als Bilderbuch fürs Kinderzimmer</li>
+            <li>Begleitet Kinder beim Aufwachsen &amp; Trockenwerden</li>
+            <li>Sei unter den Ersten, die es bekommen</li>
+          </ul>
+          <a class="btn btn--block card-cta" style="background:var(--sage);box-shadow:0 12px 26px rgba(163,185,163,.45);" href="#dabei">Buch vormerken</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÜBER ANNE ============ -->
+<section class="bg-white">
+  <div class="wrap about">
+    <div class="about-photo reveal"><img src="assets/anne.jpg" alt="Anne, Gründerin von Pippin die Windelfreimaus" /></div>
+    <div class="reveal">
+      <p class="kicker">Hinter Pippin</p>
+      <h2>Hi, ich bin Anne.</h2>
+      <p>Mama von drei wilden Jungs, gemeinsam mit meinem Mann Daniel. Mein zweiter Sohn hat mir damals etwas gezeigt, das alles verändert hat: dass Windelfrei nichts mit „Ausscheidung wegtrainieren" zu tun hat – sondern mit Nähe, Nervensystem, Körperwahrnehmung und Vertrauen.</p>
+      <p>Seitdem brenne ich dafür, Windelfrei aus der Supermama-Ecke zu holen und so einfach zu machen, dass Eltern nicht mehr leisten müssen – sondern endlich mehr verstehen dürfen.</p>
+      <div class="creds">
+        <span class="chip">Windelfrei-Beraterin</span>
+        <span class="chip">Trageberaterin</span>
+        <span class="chip">Stillberaterin</span>
+        <span class="chip">Babyschlafcoach</span>
+        <span class="chip">ehem. Tagesmutter</span>
+        <span class="chip">bindungsorientierte Familienpädagogik</span>
+      </div>
+      <div class="trust-row">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-2 5 5 0 0 1 9 2c-2 4.5-9 9-9 9Z" stroke-linejoin="round"/></svg> Aus Deutschland</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Von einer Windelfrei- &amp; Baby-Beraterin entwickelt</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9-2.6.9-5.5-4-3.9 5.5-.8L12 3Z" stroke-linejoin="round"/></svg> Bindungsorientiert &amp; undogmatisch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WARUM DIE WINDEL ANDERS IST ============ -->
+<section class="bg-sand">
+  <div class="wrap windel">
+    <div class="reveal">
+      <p class="kicker">Warum die Pippin-Windel anders ist</p>
+      <h2>Eine Windel, die sich eurem Leben anpasst – nicht umgekehrt.</h2>
+      <p class="lead">Statt einer riesigen Produktpalette gibt es bei Pippin das, was Familien wirklich brauchen: eine durchdachte Windel, die in jeder Lebensphase mitmacht.</p>
+      <div class="usp-list">
+        <div class="u"><span class="badge">2&nbsp;in&nbsp;1</span><div><h3>Abhalten &amp; Wickeln</h3><p>Umgeknöpft Abhaltewindel, klassisch normale Stoffwindel – spontan, wie der Moment es braucht.</p></div></div>
+        <div class="u"><span class="badge">PUL</span><div><h3>Extrem pflegeleicht</h3><p>Robustes, schnell trocknendes Material für den echten Familienalltag – ohne Aufwand-Stress.</p></div></div>
+        <div class="u"><span class="badge">1×</span><div><h3>Einzigartig am Markt</h3><p>Die einzige Stoffwindel dieser Art – entwickelt aus eigener Erfahrung mit drei Kindern.</p></div></div>
+      </div>
+    </div>
+    <div class="windel-photo reveal"><img src="assets/foto-mama-kind.jpg" alt="Mama mit Kindern im Alltag" /></div>
+  </div>
+</section>
+
+<!-- ============ SIGNUP / FREEBIE ============ -->
+<section id="dabei" class="signup">
+  <div class="wrap">
+    <div class="signup-grid">
+      <div class="reveal">
+        <p class="kicker">Werde Teil von Pippins Familie</p>
+        <h2>Sei von Anfang an dabei – kostenlos.</h2>
+        <p class="lead">Trag dich einmal ein und verpasse nichts: Du bekommst sofort Pippins kleine Windelfrei-Starthilfe und bist als Erste:r dabei, wenn Kurs, Windel und Buch starten.</p>
+        <ul class="gift-list">
+          <li><span class="g-ico">🎁</span><div><strong>Gratis: Pippins Windelfrei-Starthilfe</strong><small>Die 5 ersten sanften Schritte – sofort per E-Mail.</small></div></li>
+          <li><span class="g-ico">💜</span><div><strong>Frühzugang zum Kurs mit Mama Maus</strong><small>Sei dabei, bevor er öffentlich startet.</small></div></li>
+          <li><span class="g-ico">🧷</span><div><strong>Warteliste für die neue Hybridwindel</strong><small>Erfahre als Erste:r, wann der Shop öffnet.</small></div></li>
+          <li><span class="g-ico">📖</span><div><strong>Vormerkung fürs Kinderbuch</strong><small>Pippins Geschichte zuerst im Kinderzimmer.</small></div></li>
+        </ul>
+      </div>
+      <div class="form-card reveal">
+        <!--
+          ====================================================================
+          BREVO-ANBINDUNG (siehe email-setup/BREVO-ANLEITUNG.md)
+          So wird aus dem Formular ein echtes Brevo-Formular – 2 Schritte:
+          1) action="…" unten: die URL deines Brevo-Formulars einsetzen
+             (Brevo → Kontakte → Formulare → dein Formular → „Teilen/Einbetten",
+             aus dem <form action="https://sibforms.com/serve/…"> die URL kopieren).
+          2) Die Feldnamen sind Brevo-konform: EMAIL, VORNAME, INTERESSE
+             (müssen genauso in deinem Brevo-Formular heißen). Nichts ändern.
+          Solange action den Platzhalter enthält, läuft das Formular im
+          Demo-Modus (zeigt nur die Danke-Box). Das Posten läuft über das
+          versteckte iframe „brevo_iframe“ → die Seite bleibt stehen und
+          zeigt deine schöne Erfolgs-Box.
+          ====================================================================
+        -->
+        <iframe name="brevo_iframe" style="display:none" title="brevo"></iframe>
+        <form id="pippin-form" action="https://2c76cb73.sibforms.com/serve/MUIFAFU656RgTPB6d3xjXPtXtC-xKfY_82THn0k01jBZbhlyJoVAPK5jC4vLDi6MQQdDxJ88gk-gf8BAGDR2iOmKfo23XEIR_ZGPz3UhBTuG0BP3olNHXgHZUqBqT4eABt6_pS1KtzfqzeH6XJ9ZEyY0FepMcPfh_-epAUZmRXiB_d3c-xExYFcxtG4_j0EKGG4pWVpEafDd6zS5Gw==" method="POST" target="brevo_iframe" novalidate>
+          <h3>Ja, ich will dabei sein! 💜</h3>
+          <p class="sub">Kein Spam, nur Pippin-Post mit Herz. Jederzeit abbestellbar.</p>
+          <div class="field">
+            <label for="vorname">Dein Vorname</label>
+            <input type="text" id="vorname" name="VORNAME" placeholder="z. B. Mama Lisa" required />
+          </div>
+          <div class="field">
+            <label for="email">Deine E-Mail-Adresse</label>
+            <input type="email" id="email" name="EMAIL" placeholder="du@beispiel.de" required />
+          </div>
+          <div class="checks">
+            <span class="lbl">Worauf freust du dich am meisten? (alles, was passt)</span>
+            <label class="check"><input type="checkbox" class="interesse" value="Kurs" checked /><span><b>Windelfrei-Kurs mit Mama Maus</b><small>Frühzugang &amp; News zum Kurs</small></span></label>
+            <label class="check"><input type="checkbox" class="interesse" value="Windel" checked /><span><b>Hybridwindel-Warteliste</b><small>Bescheid zum Shop-Relaunch</small></span></label>
+            <label class="check"><input type="checkbox" class="interesse" value="Buch" /><span><b>Pippin-Kinderbuch</b><small>Vormerkung zur Vorbestellung</small></span></label>
+          </div>
+          <input type="hidden" name="INTERESSE" id="interesse_hidden" />
+          <!-- Brevo-Pflichtfelder: Honeypot (muss leer bleiben) + Sprache -->
+          <input type="text" name="email_address_check" value="" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="locale" value="de" />
+          <button type="submit" class="btn btn--block">Jetzt kostenlos dabei sein</button>
+          <p class="privacy">Mit dem Eintragen stimmst du zu, Pippin-Post zu erhalten. Deine Daten sind sicher – mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        </form>
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          <img src="assets/pippin-jump.png" alt="Pippin freut sich" />
+          <h3>Willkommen in Pippins Familie! 💜</h3>
+          <p>Schau gleich in dein E-Mail-Postfach – deine Windelfrei-Starthilfe ist unterwegs zu dir. (Wirf zur Sicherheit auch einen Blick in den Spam-Ordner.)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img class="flogo" src="assets/logo-pippin.png" alt="Pippin die Windelfreimaus" /></a>
+    <div class="links">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:info@pippin-welt.de">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <div class="copy">© <span id="year"></span> Pippin die Windelfreimaus · Anne Siebenkees · vormals siebenKÄSEhoch · Mit Liebe entwickelt – aus Deutschland.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ------------------------------------------------------------------
+  // FORMULAR → BREVO (Details: email-setup/BREVO-ANLEITUNG.md)
+  // Solange action den Platzhalter enthält, läuft alles im Demo-Modus
+  // (zeigt nur die Danke-Box, sendet nichts). Sobald du die echte
+  // Brevo-Formular-URL einsetzt, postet das Formular ins versteckte
+  // iframe an Brevo (Seite bleibt stehen) → Brevo startet Double-Opt-in
+  // + Willkommens-Automation. Die Danke-Box wird in beiden Fällen gezeigt.
+  // ------------------------------------------------------------------
+  const form = document.getElementById('pippin-form');
+  form.addEventListener('submit', function(ev){
+    const email = document.getElementById('email'), name = document.getElementById('vorname');
+    if(!name.value.trim()){ ev.preventDefault(); name.focus(); return; }
+    if(!email.checkValidity()){ ev.preventDefault(); email.focus(); return; }
+    // Angekreuzte Interessen in das versteckte Brevo-Feld zusammenfassen
+    const sel = Array.from(document.querySelectorAll('.interesse:checked')).map(c=>c.value);
+    document.getElementById('interesse_hidden').value = sel.join(', ');
+    const action = form.getAttribute('action') || '';
+    // Noch nicht angebunden → Demo-Modus: Absenden verhindern
+    if(action.indexOf('HIER_BREVO') !== -1){ ev.preventDefault(); }
+    // (Wenn angebunden: kein preventDefault → POST geht an Brevo ins iframe)
+    form.style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+    document.getElementById('form-success').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+</script>
+</body>
+</html>
