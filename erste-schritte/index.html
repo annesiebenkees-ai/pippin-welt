@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Pippins erste Schritte</title>
 <meta name="description" content="Welcher Windelfrei-Weg passt zu euch? Finde deinen Mäuse-Typ und geh sieben kleine Schritte mit der Mama-Maus. Alles bleibt auf deinem Handy." />
-<meta name="theme-color" content="#efede5" />
+<meta name="theme-color" content="#ead9ee" />
 <link rel="manifest" href="manifest.webmanifest" />
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 <link rel="icon" href="icons/icon-192.png" />
@@ -17,17 +17,18 @@
 @font-face { font-family: 'Nunito'; src: url(fonts/nunito.woff2) format('woff2'); font-weight: 200 900; font-display: swap; }
 
 :root {
-  --sand: #efede5; --cream: #f8f5ef; --karte: #ffffff;
-  --lavendel: #a898c8; --lavendel-tief: #6f5b98; --lavendel-hell: #ece6f5;
-  --orange: #f87222; --orange-tief: #d95d12;
-  --salbei: #dde7dd; --tinte: #403a36; --tinte-weich: #6b645c; --linie: #e4ddd2;
-  --schatten: 0 10px 30px rgba(111,91,152,.12);
+  /* Pippin „Brand A" seit 20.10.2026 (context/design-kits.md): Flieder-Fläche, Bordeaux für Schrift und Knöpfe, Buttergelb als Markierung, Pistazie/Salbei weich */
+  --sand: #ead9ee; --cream: #f6eef7; --karte: #ffffff;
+  --lavendel: #c9a9cf; --lavendel-tief: #63192f; --lavendel-hell: #f5ecf6;
+  --orange: #63192f; --orange-tief: #4a1222; --butter: #f7e3b0;
+  --salbei: #e9efdc; --tinte: #3d2a30; --tinte-weich: #6e5a60; --linie: #e6d6e8;
+  --schatten: 0 10px 30px rgba(99,25,47,.08);
 }
 body.nacht {
-  --sand: #24202b; --cream: #2b2633; --karte: #332d3d;
-  --lavendel: #8f80b3; --lavendel-tief: #c9bde6; --lavendel-hell: #3d3549;
-  --orange: #d9824e; --orange-tief: #e8975f;
-  --salbei: #34403a; --tinte: #ebe5f2; --tinte-weich: #b7aec4; --linie: #463e52;
+  --sand: #241a20; --cream: #2d2128; --karte: #33262e;
+  --lavendel: #8e6f8f; --lavendel-tief: #e9c9da; --lavendel-hell: #3d2d37;
+  --orange: #9c4a62; --orange-tief: #b45c75; --butter: #6b5a35;
+  --salbei: #2f3a2c; --tinte: #f1e6ec; --tinte-weich: #c4b3bc; --linie: #4a3843;
   --schatten: none;
 }
 * { box-sizing: border-box; }
@@ -74,12 +75,12 @@ body.nacht .maus-bild { filter: brightness(.85); }
 ul.sparen { list-style: none; padding: 0; margin: 0; }
 ul.sparen li { padding: 8px 0 8px 34px; position: relative; border-bottom: 1px dashed var(--linie); }
 ul.sparen li:last-child { border-bottom: 0; }
-ul.sparen li::before { content: '✕'; position: absolute; left: 6px; color: var(--orange); font-weight: 800; }
+ul.sparen li::before { content: '✕'; position: absolute; left: 6px; color: var(--lavendel-tief); font-weight: 800; }
 .tag-label { font: 600 .85rem 'Fredoka', sans-serif; color: var(--lavendel-tief); text-transform: uppercase; letter-spacing: .06em; }
 .punkte { display: flex; gap: 8px; justify-content: center; margin: 4px 0 18px; }
 .punkte i { width: 12px; height: 12px; border-radius: 50%; background: var(--lavendel-hell); }
 .punkte i.fertig { background: var(--lavendel); }
-.punkte i.heute { background: var(--orange); }
+.punkte i.heute { background: var(--lavendel-tief); }
 .check-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
 .chip { border: 2px solid var(--linie); background: var(--karte); color: var(--tinte); border-radius: 999px; padding: 10px 16px; font: 600 .95rem 'Nunito', sans-serif; cursor: pointer; min-height: 44px; }
@@ -93,6 +94,7 @@ label.feld { font-weight: 700; font-size: .95rem; }
 .fuss { text-align: center; font-size: .82rem; color: var(--tinte-weich); margin-top: 28px; }
 .fuss a { color: inherit; }
 .zitat { font: 600 1.15rem 'Fredoka', sans-serif; color: var(--lavendel-tief); }
+.markiert { background: linear-gradient(transparent 55%, var(--butter) 55%); padding: 0 2px; }
 .kraftsatz { font: 600 1.3rem/1.4 'Fredoka', sans-serif; color: var(--lavendel-tief); margin: 6px 0 10px; }
 .nachspueren { border-top: 1px dashed var(--linie); padding-top: 12px; margin-top: 14px; font-style: italic; color: var(--tinte-weich); }
 .nachspueren b { font-style: normal; color: var(--lavendel-tief); }

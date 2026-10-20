@@ -28,7 +28,7 @@
     const dunkel = h >= 20 || h < 6 || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
     document.body.classList.toggle('nacht', dunkel);
     const m = document.querySelector('meta[name=theme-color]');
-    if (m) m.content = dunkel ? '#24202b' : '#efede5';
+    if (m) m.content = dunkel ? '#241a20' : '#ead9ee';
   }
   nachtmodus(); setInterval(nachtmodus, 60000);
 
@@ -118,7 +118,7 @@
       '<div class="karte mitte">' +
       '<p class="tag-label">' + esc(w.untertitel) + '</p>' +
       '<img class="maus-bild" src="' + w.bild + '" alt="' + esc(w.name) + '">' +
-      '<h1>Ihr seid ' + esc(w.name.replace('Die ', 'die ')) + '</h1>' +
+      '<h1>Ihr seid <span class="markiert">' + esc(w.name.replace('Die ', 'die ')) + '</span></h1>' +
       '<p class="zitat">' + esc(w.tagline) + '</p>' +
       '</div>' +
       mausSagt(persoenlicheSaetze().map(esc).join(' ')) +
@@ -352,17 +352,17 @@
       if (z) zeilen.push(z); return zeilen;
     }
     function zeichnen() {
-      x.fillStyle = '#efede5'; x.fillRect(0, 0, 1080, 1920);
-      x.fillStyle = '#ece6f5'; x.beginPath(); x.arc(540, 820, 430, 0, Math.PI * 2); x.fill();
+      x.fillStyle = '#ead9ee'; x.fillRect(0, 0, 1080, 1920);
+      x.fillStyle = '#f6eef7'; x.beginPath(); x.arc(540, 820, 430, 0, Math.PI * 2); x.fill();
       if (logo.naturalWidth) { const lb = 300, lh = lb * logo.naturalHeight / logo.naturalWidth; x.drawImage(logo, 540 - lb / 2, 120, lb, lh); }
       if (bild.naturalWidth) { const b = 720, h = b * bild.naturalHeight / bild.naturalWidth; x.drawImage(bild, 540 - b / 2, 820 - h / 2, b, h); }
-      x.textAlign = 'center'; x.fillStyle = '#6f5b98';
+      x.textAlign = 'center'; x.fillStyle = '#63192f';
       x.font = '600 46px Fredoka, Nunito, sans-serif'; x.fillText('Wir sind Team', 540, 1340);
-      x.font = '600 96px Fredoka, Nunito, sans-serif'; x.fillText(w.name.replace('Die ', ''), 540, 1450);
-      x.fillStyle = '#403a36'; x.font = '600 46px Nunito, sans-serif';
+      x.font = '600 96px Fredoka, Nunito, sans-serif'; const nm = w.name.replace('Die ', ''); const nb = x.measureText(nm).width; x.fillStyle = '#f7e3b0'; x.fillRect(540 - nb / 2 - 14, 1420, nb + 28, 44); x.fillStyle = '#63192f'; x.fillText(nm, 540, 1450);
+      x.fillStyle = '#3d2a30'; x.font = '600 46px Nunito, sans-serif';
       umbruch(w.teilen, 860).forEach((z, i) => x.fillText(z, 540, 1560 + i * 62));
-      x.fillStyle = '#f87222'; x.font = '700 40px Nunito, sans-serif'; x.fillText('Welcher Weg passt zu euch?', 540, 1760);
-      x.fillStyle = '#6b645c'; x.font = '600 38px Nunito, sans-serif'; x.fillText('pippin-welt.de/erste-schritte', 540, 1820);
+      x.fillStyle = '#63192f'; x.font = '700 40px Nunito, sans-serif'; x.fillText('Welcher Weg passt zu euch?', 540, 1760);
+      x.fillStyle = '#6e5a60'; x.font = '600 38px Nunito, sans-serif'; x.fillText('pippin-welt.de/erste-schritte', 540, 1820);
       c.toBlob(async (blob) => {
         const datei = new File([blob], 'pippin-' + S.weg + '.png', { type: 'image/png' });
         if (navigator.canShare && navigator.canShare({ files: [datei] })) {
