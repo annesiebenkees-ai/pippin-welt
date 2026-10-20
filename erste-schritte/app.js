@@ -77,6 +77,7 @@
       '<img class="maus-bild" src="img/face.png" alt="Pippin, die Maus" style="width:46%">' +
       '<h1>Welcher Windelfrei-Weg passt zu euch?</h1>' +
       '<p>Zehn kurze Fragen zu eurem echten Alltag. Dann zeigt dir die Mama-Maus euren Weg — und begleitet dich sieben Tage lang mit einem kleinen Schritt pro Tag.</p>' +
+      '<p class="zitat">' + esc(INHALT.bauch) + '</p>' +
       '<button class="btn" id="los">Los geht\'s · 2 Minuten</button>' +
       '<p class="klein">🔒 ' + esc(INHALT.datenschutz) + '</p>' +
       '</div>' + fuss());
@@ -125,6 +126,7 @@
       '<div class="karte salbei"><h3>Was du dir sparen kannst</h3><ul class="sparen">' + w.sparen.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul></div>' +
       '<div class="karte"><h3>Dein erster Schritt</h3><p>' + esc(w.ersterSchritt) + '</p></div>' +
       '<div class="karte weich"><h3>Ein Satz ' + esc(w.satzFuer) + '</h3><p class="zitat">' + esc(w.satz) + '</p></div>' +
+      kraftsatzKarte(w) +
       (S.start ? '' : '<button class="btn" id="starten">Sieben Tage mit der Mama-Maus starten</button>') +
       '<button class="btn zweit" id="teilen">Unser Ergebnis teilen</button>' +
       formular('Willst du mehr? Am ' + INHALT.webinar.datum + ' erklärt Anne live, wie Windelfrei, Schlaf und Nähe zusammenhängen — kostenlos.') +
@@ -135,6 +137,11 @@
     an('teilen', teilen);
     an('neu', () => { S.antworten = {}; S.weg = null; sichern(); frage(0); });
     formularVerdrahten();
+  }
+
+  function kraftsatzKarte(w, abstand) {
+    if (!w.kraftsatz) return '';
+    return '<div class="karte mitte"' + (abstand ? ' style="margin-top:14px"' : '') + '><p class="tag-label">Dein Kraftsatz</p><p class="kraftsatz">' + w.kraftsatz.split('\n').map(esc).join('<br>') + '</p><p class="klein">Sag ihn dir leise, wenn es schwer wird.</p></div>';
   }
 
   function starten() {
@@ -172,7 +179,8 @@
 
     html += '<div class="karte"><h2>' + esc(t.titel) + '</h2><p>' + esc(schritt) + '</p>' +
       '<p class="klein"><b>Warum:</b> ' + esc(t.warum) + '</p>' +
-      (t.tipp ? '<p class="klein"><b>Tipp:</b> ' + esc(t.tipp) + '</p>' : '') + '</div>';
+      (t.tipp ? '<p class="klein"><b>Tipp:</b> ' + esc(t.tipp) + '</p>' : '') +
+      (w.nachspueren && w.nachspueren[tag - 1] ? '<p class="nachspueren"><b>Zum Nachspüren</b><br>' + esc(w.nachspueren[tag - 1]) + '</p>' : '') + '</div>';
 
     if (fertigHeute) {
       html += '<div class="karte weich mitte"><h3>Für heute bist du fertig.</h3><p>Morgen wartet ' + (tag === 7 ? 'dein Rückblick' : 'Tag ' + tag) + ' auf dich. Schön, dass du da warst.</p></div>';
@@ -264,6 +272,7 @@
       '<div class="statistik"><div><b>' + zahl('geklappt') + '</b><span>hat geklappt</span></div><div><b>' + (zahl('nicht') + zahl('daneben')) + '</b><span>gehörte dazu</span></div><div><b>' + S.pausen.length + '</b><span>Pause-Tage</span></div></div>' +
       '</div>' +
       mausSagt(esc(w.abschluss)) +
+      kraftsatzKarte(w, true) +
       (m ? '<div class="karte salbei" style="margin-top:14px"><h3>Was mir bei euch aufgefallen ist</h3><p>' + esc(m) + '</p></div>' : '') +
       '<div class="karte" style="margin-top:14px"><h3>Und jetzt?</h3><p>Wenn du nach dieser Woche merkst, dass du tiefer einsteigen willst: Am ' + esc(INHALT.webinar.datum) + ' erklärt Anne live, wie Windelfrei, Schlaf und Nähe zusammenhängen. Kostenlos.</p></div>' +
       formular('Sichere dir deinen Platz — die Einladung kommt per Mail.') +

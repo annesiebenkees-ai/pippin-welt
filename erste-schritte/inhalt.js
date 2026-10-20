@@ -105,7 +105,7 @@ const INHALT = {
       untertitel: 'Der sanfte Einstieg',
       bild: 'img/morgenmaus.png',
       tagline: 'Ein Moment am Tag. Mehr nicht.',
-      text: 'Du bist neugierig, aber deine Kraft ist gerade knapp — oder ihr steht noch ganz am Anfang. Die Morgenmaus fängt dort an, wo es am leichtesten ist: nach dem Aufwachen. Das ist ein Moment, in dem viele Babys Pipi machen. Du bietest deinem Kind einen Ort dafür an. Und wenn nichts kommt, ist das genauso in Ordnung.',
+      text: "Vielleicht bist du gerade müde, vielleicht steht ihr ganz am Anfang — und trotzdem ist da diese Neugier. Halt sie fest, aber trag sie leicht. Die Morgenmaus fängt dort an, wo es am wenigsten kostet: nach dem Aufwachen, in einem Moment, in dem viele Babys ohnehin Pipi machen. Du bietest deinem Kind einen Ort an. Kommt nichts, ist das kein Rückschlag. Es ist einfach ein Morgen.",
       sparen: [
         'Tabellen und feste Uhrzeiten',
         'den ganzen Tag ans Abhalten zu denken',
@@ -116,7 +116,9 @@ const INHALT = {
       satz: '„Wir probieren morgens ein bisschen was aus. Ganz ohne Ehrgeiz."',
       satzFuer: 'für die Schwiegermutter',
       teilen: 'Ein Moment am Tag. Mehr nicht.',
-      abschluss: 'Sieben Tage, ein kleiner Moment am Morgen — und du hast dein Kind ein Stück besser kennengelernt. Ganz ohne Programm.',
+      abschluss: "Sieben Morgen lang hast du hingeschaut. Nicht perfekt, nicht jeden Tag — aber du warst da. Und dabei ist etwas passiert, das dir kein Ratgeber abnehmen kann: Du kennst dein Kind ein Stück besser. Oft weiß dein Bauch längst, was dein Kopf gerade erst lernt.",
+      kraftsatz: "Ein kleiner Moment reicht.\nIch schaue hin — und das ist genug.",
+      nachspueren: ["Wie hat sich der Moment für dich angefühlt — leicht oder angestrengt?", "Wann am Tag bist du selbst am ruhigsten?", "Was ist dir heute an deinem Kind aufgefallen, das du vorher nie bemerkt hast?", "Wo hast du heute gemerkt: Eigentlich wusste ich es schon?", "Was hat dir heute gutgetan, ganz ohne Abhalten?", "Wer darf diesen Weg mit dir teilen?", "Was nimmst du aus dieser Woche mit — über dein Kind und über dich?"],
       tage: [
         { titel: 'Ein Moment nach dem Aufwachen', schritt: 'Nach dem Aufwachen: Windel ab, dein Kind kurz über Töpfchen oder Waschbecken halten, ein leises „Pssss" dazu. Zehn Atemzüge lang. Dann Windel wieder dran.', warum: 'Du suchst keinen Erfolg, du schaffst eine kleine Gewohnheit. Dein Kind erlebt: Hier darf ich loslassen.', tipp: 'Halte ein Tuch bereit. Und wenn nichts kommt: Windel dran, fertig.' },
         { titel: 'Dein Geräusch', schritt: 'Such dir ein Geräusch aus, das du jedes Mal machst, wenn du abhältst — ein „Pssss" oder ein leises Summen. Heute wieder nach dem Aufwachen, mit deinem Geräusch.', warum: 'Mit der Zeit verbindet dein Kind das Geräusch mit dem Loslassen. Wie ein Schlaflied vorm Einschlafen.', tipp: 'Nimm ein Geräusch, das du auch um sechs Uhr morgens noch gern machst.' },
@@ -133,7 +135,7 @@ const INHALT = {
       untertitel: 'Teilzeit-Windelfrei',
       bild: 'img/nestmaus.png',
       tagline: 'Zu Hause ohne, unterwegs mit.',
-      text: 'Euer Alltag findet nicht nur zu Hause statt: Kita, Tagesmutter, Termine, Einkauf. Die Nestmaus macht daraus kein Problem. Abgehalten wird da, wo es leicht ist — im Nest. Draußen bleibt die Windel dran. Jedes Pipi, das nicht in der Windel landet, ist ein Gewinn.',
+      text: "Euer Alltag ist voll — Kita, Termine, Einkauf, und dazwischen das Leben. Vielleicht hast du gedacht, Windelfrei sei dann nichts für euch. Doch es geht nicht um alles oder nichts. Die Nestmaus hält ab, wo es leicht ist: zu Hause, im Nest. Draußen bleibt die Windel dran, ohne schlechtes Gewissen. Jedes Pipi, das nicht in der Windel landet, ist ein kleines Geschenk an euch beide.",
       sparen: [
         'mit der Kita zu diskutieren',
         'unterwegs abzuhalten, wenn es dich stresst',
@@ -144,7 +146,9 @@ const INHALT = {
       satz: '„Zu Hause halten wir manchmal ab. Bei euch bleibt alles, wie es ist."',
       satzFuer: 'für Kita oder Tagesmutter',
       teilen: 'Zu Hause ohne, unterwegs mit.',
-      abschluss: 'Eine Woche Nest-Momente — und dein Kind kennt jetzt einen Ort, an dem es loslassen darf. Mitten in eurem vollen Alltag.',
+      abschluss: "Eine Woche lang hast du Windelfrei in euer volles Leben geholt, ohne dass es voller wurde. Dein Kind kennt jetzt einen Ort, an dem es loslassen darf. Und du weißt: Teilzeit ist kein halber Weg. Es ist euer Weg.",
+      kraftsatz: "Nicht ganz oder gar nicht.\nSo, wie es zu uns passt — genau so ist es richtig.",
+      nachspueren: ["Welcher Moment in eurem Tag ist am ruhigsten?", "Wo darfst du es dir leichter machen?", "Wie fühlt sich das Heimkommen für dein Kind an?", "Was zeigt dir dein Kind, wenn es keine Windel trägt?", "Was weiß nur du über dein Kind — weil du es in den stillen Momenten siehst?", "Wo darf „halb\" für dich ganz genug sein?", "Welcher Nest-Moment gehört jetzt zu euch — und warum gerade dieser?"],
       tage: [
         { titel: 'Euer Nest-Moment', schritt: 'Such dir einen festen Moment aus, an dem ihr sowieso zu Hause seid — nach dem Heimkommen, vor dem Baden. Heute hältst du dann einmal ab.', warum: 'Ein fester Moment spart dir das Nachdenken. Er wird zur Gewohnheit, ganz ohne Erinnerung im Handy.', tipp: 'Nimm den Moment, der am wenigsten hektisch ist.' },
         { titel: 'Ein fester Platz', schritt: 'Richte einen Abhalte-Platz ein: Töpfchen im Bad, ein Handtuch daneben, fertig. Heute im Nest-Moment dorthin.', warum: 'Dein Kind erkennt den Ort wieder. Und du suchst nicht jedes Mal.', tipp: 'Ein altes Handtuch reicht. Nichts kaufen.' },
@@ -161,7 +165,7 @@ const INHALT = {
       untertitel: 'Die Nacht-Spur',
       bild: 'img/nachtmaus.png',
       tagline: 'Manchmal weckt nicht der Schlaf, sondern die Blase.',
-      text: 'Eure Nächte sind unruhig, und du bist müde. Die Nachtmaus schaut mit dir auf etwas, das in vielen Schlaf-Ratgebern fehlt: Manchmal wird ein Baby wach, weil es Pipi machen muss. Das ist keine Garantie und kein Schlafprogramm, sondern ein Blickwinkel, der Nächte manchmal leichter macht. Aufwachen bleibt trotzdem normal.',
+      text: "Eure Nächte sind unruhig, und du bist müde auf eine Art, die nur kennt, wer sie erlebt. Vielleicht hast du dich schon gefragt, was du falsch machst. Nichts. Aufwachen gehört zu Babys dazu. Die Nachtmaus schaut trotzdem mit dir auf etwas, das in vielen Schlaf-Ratgebern fehlt: Manchmal wird ein Baby wach, weil es Pipi machen muss und das nicht in die Windel will. Das ist kein Schlafprogramm und keine Garantie — sondern ein neuer Blick, der Nächte manchmal leichter macht.",
       sparen: [
         'Schlaftraining aus Verzweiflung',
         'nachts das große Licht anzumachen',
@@ -172,7 +176,9 @@ const INHALT = {
       satz: '„Wir schauen gerade, ob die Nächte mit dem Pipi zusammenhängen. Kein Schlaftraining."',
       satzFuer: 'für alle, die Schlaftipps haben',
       teilen: 'Manchmal weckt nicht der Schlaf, sondern die Blase.',
-      abschluss: 'Du hast eine Woche lang nachts hingeschaut, obwohl du müde warst. Was auch immer dabei herauskam: Du kennst eure Nächte jetzt besser.',
+      abschluss: "Eine Woche lang hast du nachts hingeschaut, obwohl du müde warst. Was auch immer dabei herauskam: Du hast eure Nächte nicht bekämpft, sondern kennengelernt. Und eine Mama, die versteht, was nachts passiert, liegt ruhiger da — auch wenn sie wach ist.",
+      kraftsatz: "Ich kämpfe nicht gegen unsere Nächte.\nIch lerne sie kennen.",
+      nachspueren: ["Wie geht es dir, wenn du nachts geweckt wirst — eher wütend, traurig oder einfach leer?", "Was wäre anders, wenn du nachts nicht mehr nach einem Grund suchen würdest?", "Wann ist dein Kind abends am entspanntesten?", "Was brauchst du selbst, um nachts ruhig zu bleiben?", "Wie hat dein Kind auf das Angebot reagiert — und was erzählt dir das über es?", "Wann hast du zuletzt etwas nur für dich getan?", "Was weißt du jetzt über eure Nächte, das du vorher nicht wusstest?"],
       nacht: true,
       tage: [
         { titel: 'Nur hinschauen', schritt: 'Wenn dein Kind heute Nacht wach wird: kurz die Windel fühlen. Nass oder trocken? Sonst nichts ändern.', warum: 'Bevor du etwas veränderst, schaust du, was ist. Das nimmt schon Druck raus.', tipp: 'Morgen früh trägst du es hier ein. Eine grobe Erinnerung reicht.' },
@@ -190,7 +196,7 @@ const INHALT = {
       untertitel: 'Mittendrin',
       bild: 'img/mutmaus.png',
       tagline: 'Rückschläge gehören dazu. Du bist trotzdem auf dem Weg.',
-      text: 'Ihr haltet schon ab, aber gerade hakt es: Dein Kind protestiert, vieles geht daneben, oder es fühlt sich nach Arbeit an. Die Mutmaus sagt dir: Das ist kein Scheitern, das ist eine Phase. Viele Kinder haben Zeiten, in denen sie nicht wollen — oft dann, wenn sie gerade etwas Neues lernen. Jetzt hilft weniger, nicht mehr.',
+      text: "Ihr haltet schon ab, und gerade hakt es: Dein Kind dreht sich weg, vieles geht daneben, und irgendwo flüstert eine Stimme, ob das alles umsonst war. War es nicht. Du bist nicht gescheitert, ihr steckt mitten in einer Phase. Viele Kinder haben Zeiten, in denen sie nicht wollen — oft genau dann, wenn sie gerade etwas Neues lernen. Jetzt hilft nicht mehr, sondern weniger. Und ein bisschen Mut, loszulassen.",
       sparen: [
         'noch mehr Abhalte-Momente einzubauen',
         'Protest zu überhören',
@@ -201,7 +207,9 @@ const INHALT = {
       satz: '„Wir machen gerade eine kleine Windelfrei-Pause. Das gehört dazu."',
       satzFuer: 'für alle, die fragen, ob es noch klappt',
       teilen: 'Rückschläge gehören dazu.',
-      abschluss: 'Du hast in einer schwierigen Phase nicht aufgegeben, sondern losgelassen. Das ist das Mutigste, was man beim Abhalten tun kann.',
+      abschluss: "Du hast in einer schweren Phase nicht festgehalten, sondern losgelassen. Das ist das Mutigste, was man beim Abhalten tun kann. Dein Kind hat gespürt, dass sein Nein gehört wird. Und genau daraus wächst das nächste Ja.",
+      kraftsatz: "Ein Rückschritt ist kein Ende.\nIch lasse los — und wir finden zurück.",
+      nachspueren: ["Wie fühlt es sich an, loszulassen statt festzuhalten?", "Wie zeigt dir dein Kind ein Nein — und was macht das mit dir?", "Was ist in eurem Leben gerade alles neu?", "Was mag dein Kind jetzt, was es vorher nicht mochte?", "Wo will dein Kind gerade selbst bestimmen?", "Wie ging es dir mit einem Tag ganz ohne?", "Was darf in Zukunft wegbleiben?"],
       tage: [
         { titel: 'Auf einen Moment reduzieren', schritt: 'Heute nur noch der eine Abhalte-Moment, der bisher am besten geklappt hat. Alle anderen fallen weg.', warum: 'Weniger Momente heißt weniger Kampf. Und der eine Moment bekommt wieder Ruhe.', tipp: 'Es fühlt sich vielleicht wie ein Rückschritt an. Ist es nicht.' },
         { titel: 'Ein Nein ernst nehmen', schritt: 'Wenn dein Kind sich heute beim Abhalten wegdreht, steif macht oder weint: sofort aufhören, Windel dran, kuscheln.', warum: 'Dein Kind sagt dir gerade etwas. Wenn es merkt, dass sein Nein gehört wird, kommt es oft von selbst zurück.', tipp: 'Kein „nur noch kurz". Wirklich sofort.' },
@@ -218,7 +226,7 @@ const INHALT = {
       untertitel: 'Sauber werden ohne Druck',
       bild: 'img/entdeckermaus.png',
       tagline: 'Dein Kind wird sauber. In seinem Tempo.',
-      text: 'Dein Kind ist schon größer, und von außen kommt Druck: „Ist es denn immer noch nicht trocken?" Die Entdeckermaus nimmt den Druck raus. Kinder werden sauber, wenn Körper und Kopf so weit sind — und du kannst sie dabei begleiten, statt sie zu trainieren. Ohne Belohnungssystem, ohne Tränen.',
+      text: "Dein Kind ist schon größer, und von außen kommt Druck: „Ist es denn immer noch nicht trocken?\" Vielleicht hast du diesen Satz so oft gehört, dass er inzwischen in deinem eigenen Kopf mitspricht. Lass ihn draußen. Dein Kind ist nicht spät dran — es hat seinen eigenen Takt. Kinder werden sauber, wenn Körper und Kopf so weit sind, und du kannst sie dabei begleiten, statt sie zu trainieren. Ohne Belohnungssystem, ohne Tränen.",
       sparen: [
         'Sticker-Tabellen und Belohnungen',
         'Vergleiche mit anderen Kindern',
@@ -229,7 +237,9 @@ const INHALT = {
       satz: '„Unser Kind wird sauber, wenn es so weit ist. Wir begleiten es dabei."',
       satzFuer: 'für alle, die fragen, ob es „endlich" trocken ist',
       teilen: 'Sauber werden in seinem Tempo.',
-      abschluss: 'Eine Woche ohne Druck, und dein Kind hat seinen Körper ein Stück mehr entdeckt. Genau so geht es weiter: in seinem Tempo.',
+      abschluss: "Eine Woche ohne Druck — und dein Kind hat seinen Körper ein Stück mehr entdeckt. Vielleicht hast du dabei auch etwas abgelegt: die Erwartungen der anderen. Genau so geht es weiter. In seinem Takt, an deiner Hand.",
+      kraftsatz: "Mein Kind hat seinen eigenen Takt.\nIch begleite es, statt es anzutreiben.",
+      nachspueren: ["Wie hat dein Kind das Töpfchen entdeckt?", "Was hat dein Kind heute bei dir abgeschaut?", "Welche Worte benutzt ihr in eurer Familie — und wie fühlen sie sich an?", "Wie ging es dir, als etwas danebenging?", "Wie fühlt sich das Nein deines Kindes an, wenn du es einfach stehen lässt?", "Wessen Erwartungen trägst du gerade mit — und sind es deine?", "Was hat dein Kind diese Woche über sich entdeckt?"],
       tage: [
         { titel: 'Das Töpfchen ist einfach da', schritt: 'Stell ein Töpfchen sichtbar ins Bad oder ins Kinderzimmer. Sag nichts dazu.', warum: 'Was dein Kind selbst entdeckt, gehört ihm. Was man ihm vorsetzt, gehört den Erwachsenen.', tipp: 'Wenn es das Töpfchen als Hut benutzt: auch eine Form von Kennenlernen.' },
         { titel: 'Mit ins Bad', schritt: 'Nimm dein Kind heute mit, wenn du selbst zur Toilette gehst, und erzähl ganz nebenbei, was du machst.', warum: 'Kinder lernen durch Nachmachen. Was in der Familie normal ist, wird für sie normal.', tipp: 'Wenn dir das unangenehm ist: Ein Geschwisterkind oder der Partner geht genauso.' },
@@ -268,9 +278,9 @@ const INHALT = {
     garnichts: [
       'Dann geht heute gar nichts. Windel dran, Kaffee warm machen, fertig. Dein Schritt wartet auf dich.',
       'Du darfst heute einfach nur durchkommen. Ich schiebe deinen Schritt auf morgen.',
-      'Müde Mamas brauchen keinen Plan, sondern eine Pause. Die hast du jetzt.',
+      'Müde Mamas brauchen keinen Plan, sondern eine Pause. Leg eine Hand auf deinen Bauch und atme einmal länger aus, als du einatmest. Mehr ist heute nicht zu tun.',
       'Heute zählt nur, dass ihr beide gut durch den Tag kommt. Alles andere kann warten.',
-      'Danke, dass du ehrlich bist. Ein Pause-Tag ist kein verlorener Tag.'
+      'Danke, dass du ehrlich bist. Ein Pause-Tag ist kein verlorener Tag. Du bist nicht zu wenig — du bist müde. Und das ist etwas ganz anderes.'
     ]
   },
 
@@ -289,6 +299,8 @@ const INHALT = {
     abends: 'Bei euch klappt es am ehesten abends. Vielleicht passt der Moment vor dem Schlafen gut zu euch.',
     nachts: 'Bei euch klappt es am ehesten nachts. Das ist ungewöhnlich und völlig in Ordnung — dein Kind zeigt dir seinen Rhythmus.'
   },
+
+  bauch: 'Oft weiß dein Bauch längst, was dein Kopf gerade erst liest.',
 
   hinweis: 'Pippins erste Schritte ersetzt keine Hebamme und keine Kinderärztin. Wenn dir an deinem Kind etwas Sorgen macht — Schmerzen beim Pipi machen, Blut, Fieber oder etwas, das sich nicht richtig anfühlt — frag dort nach.',
   datenschutz: 'Alles, was du hier eingibst, bleibt auf deinem Handy. Nichts wird an uns oder an andere geschickt. Nur wenn du unten freiwillig deine E-Mail einträgst, geht diese an unseren Newsletter-Dienst.'
