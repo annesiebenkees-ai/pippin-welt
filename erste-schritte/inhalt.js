@@ -7,7 +7,7 @@ const INHALT = {
 
   webinar: {
     datum: 'Donnerstag, 19. November',
-    zeile: 'Live-Webinar mit Anne am Donnerstag, 19. November, abends'
+    zeile: 'Live-Webinar mit Anne am Donnerstag, 19. November, um 9 Uhr (Zoom)'
   },
 
   fragen: [
