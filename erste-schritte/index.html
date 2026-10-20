@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Pippins erste Schritte</title>
+<meta name="description" content="Welcher Windelfrei-Weg passt zu euch? Finde deinen Mäuse-Typ und geh sieben kleine Schritte mit der Mama-Maus. Alles bleibt auf deinem Handy." />
+<meta name="theme-color" content="#efede5" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Erste Schritte" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<style>
+@font-face { font-family: 'Fredoka'; src: url(fonts/fredoka.woff2) format('woff2'); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: 'Nunito'; src: url(fonts/nunito.woff2) format('woff2'); font-weight: 200 900; font-display: swap; }
+
+:root {
+  --sand: #efede5; --cream: #f8f5ef; --karte: #ffffff;
+  --lavendel: #a898c8; --lavendel-tief: #6f5b98; --lavendel-hell: #ece6f5;
+  --orange: #f87222; --orange-tief: #d95d12;
+  --salbei: #dde7dd; --tinte: #403a36; --tinte-weich: #6b645c; --linie: #e4ddd2;
+  --schatten: 0 10px 30px rgba(111,91,152,.12);
+}
+body.nacht {
+  --sand: #24202b; --cream: #2b2633; --karte: #332d3d;
+  --lavendel: #8f80b3; --lavendel-tief: #c9bde6; --lavendel-hell: #3d3549;
+  --orange: #d9824e; --orange-tief: #e8975f;
+  --salbei: #34403a; --tinte: #ebe5f2; --tinte-weich: #b7aec4; --linie: #463e52;
+  --schatten: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--sand); color: var(--tinte);
+  font: 17px/1.55 'Nunito', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased; min-height: 100vh;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  transition: background .4s, color .4s;
+}
+h1, h2, h3 { font-family: 'Fredoka', 'Nunito', sans-serif; font-weight: 600; line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: 1.9rem; } h2 { font-size: 1.45rem; } h3 { font-size: 1.15rem; }
+p { margin: 0 0 1em; }
+.app { max-width: 520px; margin: 0 auto; padding: 18px 16px 40px; }
+.kopf { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.kopf img { height: 56px; }
+body.nacht .kopf img.logo { filter: brightness(1.6) saturate(.6); }
+.icon-btn { background: none; border: 0; color: var(--tinte-weich); font: inherit; font-size: .9rem; padding: 10px; cursor: pointer; }
+.karte { background: var(--karte); border-radius: 26px; padding: 24px 20px; box-shadow: var(--schatten); margin-bottom: 16px; }
+.karte.weich { background: var(--lavendel-hell); box-shadow: none; }
+.karte.salbei { background: var(--salbei); box-shadow: none; }
+.maus-bild { display: block; width: 72%; max-width: 280px; margin: 0 auto 8px; }
+body.nacht .maus-bild { filter: brightness(.85); }
+.klein { font-size: .9rem; color: var(--tinte-weich); }
+.mitte { text-align: center; }
+.btn {
+  display: block; width: 100%; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--orange); color: #fff; font: 700 1.08rem 'Nunito', sans-serif;
+  padding: 17px 20px; margin: 10px 0; min-height: 58px; text-decoration: none; text-align: center;
+}
+.btn:active { transform: scale(.98); }
+.btn.zweit { background: var(--lavendel-hell); color: var(--lavendel-tief); }
+.btn.leise { background: transparent; color: var(--tinte-weich); font-weight: 600; min-height: 48px; }
+.fortschritt { height: 6px; background: var(--lavendel-hell); border-radius: 3px; overflow: hidden; margin: 4px 0 22px; }
+.fortschritt span { display: block; height: 100%; background: var(--lavendel); transition: width .3s; }
+.wahl { display: block; width: 100%; text-align: left; border: 2px solid var(--linie); background: var(--karte); color: var(--tinte);
+  border-radius: 18px; padding: 16px 18px; margin: 10px 0; font: 600 1.02rem 'Nunito', sans-serif; cursor: pointer; min-height: 58px; }
+.wahl:active, .wahl.an { border-color: var(--lavendel); background: var(--lavendel-hell); }
+.sprechblase { position: relative; background: var(--lavendel-hell); border-radius: 22px; padding: 16px 18px; margin: 14px 0 6px 0; }
+.sprechblase::before { content: ''; position: absolute; left: 26px; top: -10px; border: 10px solid transparent; border-bottom-color: var(--lavendel-hell); border-top: 0; }
+.maus-zeile { display: flex; gap: 12px; align-items: flex-end; }
+.maus-zeile img { width: 54px; height: auto; flex: none; }
+ul.sparen { list-style: none; padding: 0; margin: 0; }
+ul.sparen li { padding: 8px 0 8px 34px; position: relative; border-bottom: 1px dashed var(--linie); }
+ul.sparen li:last-child { border-bottom: 0; }
+ul.sparen li::before { content: '✕'; position: absolute; left: 6px; color: var(--orange); font-weight: 800; }
+.tag-label { font: 600 .85rem 'Fredoka', sans-serif; color: var(--lavendel-tief); text-transform: uppercase; letter-spacing: .06em; }
+.punkte { display: flex; gap: 8px; justify-content: center; margin: 4px 0 18px; }
+.punkte i { width: 12px; height: 12px; border-radius: 50%; background: var(--lavendel-hell); }
+.punkte i.fertig { background: var(--lavendel); }
+.punkte i.heute { background: var(--orange); }
+.check-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.chip { border: 2px solid var(--linie); background: var(--karte); color: var(--tinte); border-radius: 999px; padding: 10px 16px; font: 600 .95rem 'Nunito', sans-serif; cursor: pointer; min-height: 44px; }
+.chip.an { border-color: var(--lavendel); background: var(--lavendel-hell); }
+.statistik { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; margin: 12px 0; }
+.statistik div { background: var(--cream); border-radius: 16px; padding: 12px 4px; }
+.statistik b { display: block; font: 600 1.6rem 'Fredoka', sans-serif; color: var(--lavendel-tief); }
+.statistik span { font-size: .8rem; color: var(--tinte-weich); }
+input[type=text], input[type=email] { width: 100%; border: 2px solid var(--linie); border-radius: 16px; padding: 14px 16px; font: 1rem 'Nunito', sans-serif; background: var(--karte); color: var(--tinte); margin: 6px 0 10px; }
+label.feld { font-weight: 700; font-size: .95rem; }
+.fuss { text-align: center; font-size: .82rem; color: var(--tinte-weich); margin-top: 28px; }
+.fuss a { color: inherit; }
+.zitat { font: 600 1.15rem 'Fredoka', sans-serif; color: var(--lavendel-tief); }
+.versteckt { display: none !important; }
+.einblenden { animation: rein .35s ease; }
+@keyframes rein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .einblenden { animation: none; } }
+</style>
+</head>
+<body>
+<div class="app" id="app" aria-live="polite"></div>
+<iframe name="brevo_iframe" style="display:none" title="Anmeldung"></iframe>
+<noscript><p style="padding:20px">Bitte aktiviere JavaScript, damit die Mama-Maus dich begleiten kann.</p></noscript>
+<script src="inhalt.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
