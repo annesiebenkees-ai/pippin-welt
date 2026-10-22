@@ -1,5 +1,5 @@
 /* Offline-Speicher für Pippins erste Schritte. Version hochzählen, wenn sich Dateien ändern. */
-const VERSION = 'erste-schritte-v5';
+const VERSION = 'erste-schritte-v6';
 const DATEIEN = [
   './', 'index.html', 'app.js', 'inhalt.js', 'manifest.webmanifest',
   'fonts/fredoka.woff2', 'fonts/nunito.woff2',

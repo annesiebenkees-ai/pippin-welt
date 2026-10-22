@@ -111,6 +111,12 @@
     return s;
   }
 
+  /* Liefert die Zuhause-Variante eines Textes (z. B. textZuhause), wenn das Kind zu Hause betreut wird */
+  function zh(o, feld) {
+    const z = o[feld + 'Zuhause'];
+    return (z && S.antworten.betreuung === 'zuhause') ? z : o[feld];
+  }
+
   function ergebnis(neuBerechnen) {
     if (neuBerechnen || !S.weg) { S.weg = wegBerechnen(S.antworten); sichern(); }
     const w = weg();
@@ -122,10 +128,10 @@
       '<p class="zitat">' + esc(w.tagline) + '</p>' +
       '</div>' +
       mausSagt(persoenlicheSaetze().map(esc).join(' ')) +
-      '<div class="karte" style="margin-top:14px"><p>' + esc(w.text) + '</p></div>' +
-      '<div class="karte salbei"><h3>Was du dir sparen kannst</h3><ul class="sparen">' + w.sparen.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul></div>' +
+      '<div class="karte" style="margin-top:14px"><p>' + esc(zh(w, 'text')) + '</p></div>' +
+      '<div class="karte salbei"><h3>Was du dir sparen kannst</h3><ul class="sparen">' + zh(w, 'sparen').map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul></div>' +
       '<div class="karte"><h3>Dein erster Schritt</h3><p>' + esc(w.ersterSchritt) + '</p></div>' +
-      '<div class="karte weich"><h3>Ein Satz ' + esc(w.satzFuer) + '</h3><p class="zitat">' + esc(w.satz) + '</p></div>' +
+      '<div class="karte weich"><h3>Ein Satz ' + esc(zh(w, 'satzFuer')) + '</h3><p class="zitat">' + esc(zh(w, 'satz')) + '</p></div>' +
       kraftsatzKarte(w) +
       (S.start ? '' : '<button class="btn" id="starten">Sieben Tage mit der Mama-Maus starten</button>') +
       '<button class="btn zweit" id="teilen">Unser Ergebnis teilen</button>' +
@@ -177,9 +183,9 @@
 
     if (meldung) html += mausSagt(esc(meldung)) + '<div style="height:12px"></div>';
 
-    html += '<div class="karte"><h2>' + esc(t.titel) + '</h2><p>' + esc(schritt) + '</p>' +
-      '<p class="klein"><b>Warum:</b> ' + esc(t.warum) + '</p>' +
-      (t.tipp ? '<p class="klein"><b>Tipp:</b> ' + esc(t.tipp) + '</p>' : '') +
+    html += '<div class="karte"><h2>' + esc(zh(t, 'titel')) + '</h2><p>' + esc(schritt) + '</p>' +
+      '<p class="klein"><b>Warum:</b> ' + esc(zh(t, 'warum')) + '</p>' +
+      (zh(t, 'tipp') ? '<p class="klein"><b>Tipp:</b> ' + esc(zh(t, 'tipp')) + '</p>' : '') +
       (w.nachspueren && w.nachspueren[tag - 1] ? '<p class="nachspueren"><b>Zum Nachspüren</b><br>' + esc(w.nachspueren[tag - 1]) + '</p>' : '') + '</div>';
 
     if (fertigHeute) {

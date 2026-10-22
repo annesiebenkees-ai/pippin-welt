@@ -145,6 +145,16 @@ const INHALT = {
       ersterSchritt: 'Such dir einen festen Nest-Moment aus, an dem ihr sowieso zu Hause seid — zum Beispiel nach dem Heimkommen oder vor dem Baden. Dort hältst du ab, sonst nirgends.',
       satz: '„Zu Hause halten wir manchmal ab. Bei euch bleibt alles, wie es ist."',
       satzFuer: 'für Kita oder Tagesmutter',
+      /* Varianten, wenn das Kind zu Hause betreut wird (Antwort „zuhause"): kein Kita-Bezug */
+      textZuhause: "Euer Alltag ist voll — Termine, Einkauf, Besuch, vielleicht Geschwister, und dazwischen das Leben. Vielleicht hast du gedacht, Windelfrei sei dann nichts für euch. Doch es geht nicht um alles oder nichts. Die Nestmaus hält ab, wo es leicht ist: zu Hause, im Nest. Unterwegs bleibt die Windel dran, ohne schlechtes Gewissen. Jedes Pipi, das nicht in der Windel landet, ist ein kleines Geschenk an euch beide.",
+      sparenZuhause: [
+        'unterwegs abzuhalten, wenn es dich stresst',
+        'ein „ganz oder gar nicht"',
+        'jeden Tag gleich zu machen',
+        'dich zu rechtfertigen'
+      ],
+      satzZuhause: '„Zu Hause halten wir manchmal ab. Unterwegs bleibt die Windel dran."',
+      satzFuerZuhause: 'für Oma, Opa und alle, die fragen',
       teilen: 'Zu Hause ohne, unterwegs mit.',
       abschluss: "Eine Woche lang hast du Windelfrei in euer volles Leben geholt, ohne dass es voller wurde. Dein Kind kennt jetzt einen Ort, an dem es loslassen darf. Und du weißt: Teilzeit ist kein halber Weg. Es ist euer Weg.",
       kraftsatz: "Nicht ganz oder gar nicht.\nSo, wie es zu uns passt — genau so ist es richtig.",
@@ -154,7 +164,7 @@ const INHALT = {
         { titel: 'Ein fester Platz', schritt: 'Richte einen Abhalte-Platz ein: Töpfchen im Bad, ein Handtuch daneben, fertig. Heute im Nest-Moment dorthin.', warum: 'Dein Kind erkennt den Ort wieder. Und du suchst nicht jedes Mal.', tipp: 'Ein altes Handtuch reicht. Nichts kaufen.' },
         { titel: 'Nach dem Heimkommen', schritt: 'Wenn ihr nach Hause kommt: Jacke aus, Windel ab, kurz abhalten. Dann ankommen.', warum: 'Nach Autositz, Trage oder Kinderwagen ist oft ein Pipi fällig. Ein natürlicher Übergang.', tipp: 'Schuhe dürfen dabei anbleiben.' },
         { titel: 'Zeit ohne Windel', schritt: 'Lass dein Kind heute eine kleine Weile ohne Windel auf einer Decke liegen oder spielen, mit einer Unterlage darunter.', warum: 'Dein Kind spürt seinen Körper, und du siehst nebenbei, wann es Pipi macht.', tipp: 'Eine Viertelstunde ist genug.' },
-        { titel: 'Was die Betreuung sieht', schritt: 'Frag beim Abholen ganz nebenbei: Wann war die Windel heute voll? Nichts erklären, nur fragen.', schrittZuhause: 'Probier heute einen zweiten Nest-Moment am Nachmittag aus.', warum: 'Andere sehen dein Kind in anderen Situationen. Das ergänzt dein Bild.', tipp: 'Wenn niemand darauf geachtet hat: auch gut. Du hast gefragt, ohne Druck zu machen.' },
+        { titel: 'Was die Betreuung sieht', titelZuhause: 'Ein zweiter Nest-Moment', schritt: 'Frag beim Abholen ganz nebenbei: Wann war die Windel heute voll? Nichts erklären, nur fragen.', schrittZuhause: 'Probier heute einen zweiten Nest-Moment am Nachmittag aus.', warumZuhause: 'Zwei feste Momente am Tag reichen völlig. Mehr muss es nicht werden.', tippZuhause: 'Wenn der zweite nicht passt: Bleib bei einem.', warum: 'Andere sehen dein Kind in anderen Situationen. Das ergänzt dein Bild.', tipp: 'Wenn niemand darauf geachtet hat: auch gut. Du hast gefragt, ohne Druck zu machen.' },
         { titel: 'Ein Tag ohne Ehrgeiz', schritt: 'Heute zählt nur euer Nest-Moment. Alles andere darf in die Windel.', warum: 'Teilzeit heißt: Es darf Teilzeit bleiben.', tipp: '' },
         { titel: 'Was du jetzt weißt', schritt: 'Schau zurück: Welcher Moment passt in euren Alltag? Was hast du über dein Kind gelernt?', warum: 'Du hast Windelfrei in einen vollen Alltag geholt, ohne dass er voller wurde.', tipp: '' }
       ]

@@ -1,0 +1,132 @@
+/* Pippin „Brand A" (context/design-kits.md, seit 20.10.2026)
+   Flieder-Fläche, Bordeaux für Schrift und Knöpfe, Buttergelb als Markierung,
+   Pistazie/Salbei weich. Betontes Wort in Fraunces kursiv. Schriften liegen lokal. */
+@font-face { font-family: 'Fraunces'; src: url(fonts/fraunces-kursiv.woff2) format('woff2'); font-style: italic; font-weight: 300 900; font-display: swap; }
+@font-face { font-family: 'Nunito'; src: url(fonts/nunito.woff2) format('woff2'); font-weight: 200 900; font-display: swap; }
+@font-face { font-family: 'Fredoka'; src: url(fonts/fredoka.woff2) format('woff2'); font-weight: 300 700; font-display: swap; }
+
+:root {
+  --flieder: #ead9ee; --flieder-hell: #f6eef7; --weiss: #fffdfd;
+  --bordeaux: #63192f; --bordeaux-tief: #4a1222;
+  --butter: #f7e3b0; --pistazie: #c5d69a; --salbei: #9faf8a; --salbei-hell: #e9efdc;
+  --tinte: #3d2a30; --tinte-weich: #6e5a60; --linie: #e2cfe4;
+  --schatten: 0 14px 40px rgba(99,25,47,.09);
+  --rund: 28px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; }
+body {
+  background: var(--flieder-hell); color: var(--tinte);
+  font: 18px/1.6 'Nunito', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--bordeaux); }
+h1, h2, h3 { font-family: 'Fredoka', 'Nunito', sans-serif; font-weight: 600; line-height: 1.18; color: var(--bordeaux); margin: 0 0 .55em; }
+h1 { font-size: clamp(2rem, 5.4vw, 3.3rem); letter-spacing: -.01em; }
+h2 { font-size: clamp(1.55rem, 3.6vw, 2.2rem); }
+h3 { font-size: 1.18rem; }
+p { margin: 0 0 1em; }
+em.f, .f { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 500; }
+.mark { background: linear-gradient(transparent 58%, var(--butter) 58%); padding: 0 .08em; }
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 16px; }
+.schmal { max-width: 680px; margin: 0 auto; }
+section { padding: 64px 0; }
+.flaeche { background: var(--flieder); }
+.salbei { background: var(--salbei-hell); }
+
+.kopf { padding: 18px 0; }
+.kopf img { height: 46px; width: auto; }
+
+.label { display: inline-block; font: 700 .82rem 'Nunito', sans-serif; letter-spacing: .07em; text-transform: uppercase; color: var(--bordeaux); background: var(--weiss); border-radius: 999px; padding: 8px 14px; margin-bottom: 18px; }
+
+.hero { padding: 24px 0 64px; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 44px; align-items: center; }
+.hero .lead { font-size: 1.2rem; color: var(--tinte); max-width: 34em; }
+.foto-rahmen { position: relative; }
+.foto-rahmen img.foto { border-radius: 200px 200px var(--rund) var(--rund); box-shadow: var(--schatten); aspect-ratio: 4/5; height: auto; object-fit: cover; width: 100%; }
+.anne-grid img { aspect-ratio: 4/5; object-fit: cover; object-position: top; width: 100%; }
+.foto-rahmen .maus { position: absolute; width: 96px; left: -26px; bottom: -18px; }
+.klebeband { position: absolute; top: 18px; right: -10px; transform: rotate(6deg); background: rgba(247,227,176,.92); padding: 8px 14px; font: 700 .95rem 'Nunito', sans-serif; color: var(--bordeaux); box-shadow: 0 3px 10px rgba(0,0,0,.06); }
+
+.btn {
+  display: inline-block; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--bordeaux); color: #fff; font: 800 1.08rem 'Nunito', sans-serif;
+  padding: 18px 30px; min-height: 58px; text-decoration: none; text-align: center;
+  transition: background .2s, transform .1s;
+}
+.btn:hover { background: var(--bordeaux-tief); }
+.btn:active { transform: scale(.98); }
+.btn.voll { display: block; width: 100%; }
+.klein { font-size: .92rem; color: var(--tinte-weich); }
+
+.karte { background: var(--weiss); border-radius: var(--rund); padding: 30px 26px; box-shadow: var(--schatten); }
+.zwei { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.liste { list-style: none; padding: 0; margin: 0; }
+.liste li { position: relative; padding: 12px 0 12px 38px; border-bottom: 1px dashed var(--linie); }
+.liste li:last-child { border-bottom: 0; }
+.liste li::before { content: ''; position: absolute; left: 4px; top: 19px; width: 18px; height: 18px; border-radius: 50%; background: var(--pistazie); }
+.liste.nein li::before { background: var(--linie); }
+
+.nacht { background: #2b1f26; color: #f1e6ec; }
+.nacht h2 { color: #f3d9e3; }
+.nacht-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; align-items: center; }
+.nacht .szene p { font-size: 1.15rem; margin-bottom: .6em; }
+.nacht .szene p.leise { color: #c4b3bc; }
+
+.termin { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 26px 0; }
+.termin div { background: var(--weiss); border-radius: 22px; padding: 18px 14px; text-align: center; }
+.termin b { display: block; font: 600 1.35rem 'Fredoka', sans-serif; color: var(--bordeaux); }
+.termin span { font-size: .9rem; color: var(--tinte-weich); }
+
+.anne-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 44px; align-items: center; }
+.anne-grid img { border-radius: var(--rund); box-shadow: var(--schatten); }
+.zitat { border-left: 4px solid var(--salbei); padding: 4px 0 4px 18px; margin: 20px 0; font-size: 1.1rem; }
+
+.kraftsatz { text-align: center; font: 500 clamp(1.35rem, 3vw, 1.75rem)/1.45 'Fraunces', Georgia, serif; font-style: italic; color: var(--bordeaux); }
+
+form .feld { display: block; font-weight: 800; font-size: .95rem; margin: 6px 0 4px; }
+input[type=text], input[type=email] { width: 100%; border: 2px solid var(--linie); border-radius: 16px; padding: 15px 16px; font: 1rem 'Nunito', sans-serif; background: #fff; color: var(--tinte); margin: 0 0 12px; }
+input:focus { outline: 3px solid var(--butter); border-color: var(--bordeaux); }
+.fehler { color: #a3243e; font-weight: 700; min-height: 1.2em; }
+.versteckt { display: none !important; }
+
+details { background: var(--weiss); border-radius: 20px; padding: 18px 22px; margin-bottom: 12px; }
+summary { cursor: pointer; font-weight: 800; color: var(--bordeaux); list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; float: right; font-size: 1.3rem; line-height: 1; }
+details[open] summary::after { content: '–'; }
+details p { margin: 12px 0 0; }
+
+.preis { font: 600 3rem 'Fredoka', sans-serif; color: var(--bordeaux); line-height: 1; }
+.preis s { font-size: 1.4rem; color: var(--tinte-weich); margin-left: 8px; font-weight: 400; }
+.countdown { display: flex; gap: 10px; justify-content: center; margin: 14px 0 6px; }
+.countdown div { background: var(--weiss); border-radius: 16px; padding: 10px 12px; min-width: 66px; text-align: center; }
+.countdown b { display: block; font: 600 1.5rem 'Fredoka', sans-serif; color: var(--bordeaux); }
+.countdown span { font-size: .78rem; color: var(--tinte-weich); }
+
+.module { counter-reset: m; list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.module li { background: var(--weiss); border-radius: 18px; padding: 16px 18px; }
+.module li b { display: block; color: var(--bordeaux); }
+.module li span { font-size: .95rem; color: var(--tinte-weich); }
+
+.fuss { padding: 34px 0 44px; text-align: center; font-size: .88rem; color: var(--tinte-weich); }
+.fuss a { color: inherit; margin: 0 8px; }
+
+.mitte { text-align: center; }
+.abstand { margin-top: 26px; }
+
+@media (max-width: 820px) {
+  section { padding: 48px 0; }
+  .hero-grid, .nacht-grid, .anne-grid, .zwei { grid-template-columns: 1fr; gap: 28px; }
+  .hero-grid .foto-rahmen { max-width: 320px; margin: 8px auto 0; }
+  .nacht-grid img { max-width: 220px; margin: 0 auto; }
+  .anne-grid img { max-width: 340px; margin: 0 auto; }
+  .module { grid-template-columns: 1fr; }
+  .termin b { font-size: 1.1rem; }
+  .btn { display: block; width: 100%; }
+  .foto-rahmen .maus { left: -6px; width: 80px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
