@@ -182,7 +182,7 @@ const INHALT = {
         'jede Nacht abzuhalten',
         'die Frage, was du falsch machst'
       ],
-      ersterSchritt: 'Heute Nacht nur hinschauen: Wenn dein Kind wach wird, fühl kurz die Windel. Nass oder trocken? Morgen früh tippst du es in die App.',
+      ersterSchritt: 'Heute Nacht achtest du auf die Minute, bevor dein Kind richtig wach wird: Wie kündigt es sich an? Und ist die Windel beim Wickeln noch warm, also gerade erst nass geworden? Morgen früh tippst du es in die App.',
       satz: '„Wir schauen gerade, ob die Nächte mit dem Pipi zusammenhängen. Kein Schlaftraining."',
       satzFuer: 'für alle, die Schlaftipps haben',
       teilen: 'Manchmal weckt nicht der Schlaf, sondern die Blase.',
@@ -191,8 +191,8 @@ const INHALT = {
       nachspueren: ["Wie geht es dir, wenn du nachts geweckt wirst — eher wütend, traurig oder einfach leer?", "Was wäre anders, wenn du nachts nicht mehr nach einem Grund suchen würdest?", "Wann ist dein Kind abends am entspanntesten?", "Was brauchst du selbst, um nachts ruhig zu bleiben?", "Wie hat dein Kind auf das Angebot reagiert — und was erzählt dir das über es?", "Wann hast du zuletzt etwas nur für dich getan?", "Was weißt du jetzt über eure Nächte, das du vorher nicht wusstest?"],
       nacht: true,
       tage: [
-        { titel: 'Nur hinschauen', schritt: 'Wenn dein Kind heute Nacht wach wird: kurz die Windel fühlen. Nass oder trocken? Sonst nichts ändern.', warum: 'Bevor du etwas veränderst, schaust du, was ist. Das nimmt schon Druck raus.', tipp: 'Morgen früh trägst du es hier ein. Eine grobe Erinnerung reicht.' },
-        { titel: 'Noch eine Nacht schauen', schritt: 'Gleiches wie gestern: beim Aufwachen kurz die Windel fühlen.', warum: 'Zwei Nächte zeigen mehr als eine.', tipp: 'Wenn du es nachts vergisst: völlig okay. Dann trägst du „weiß nicht" ein.' },
+        { titel: 'Die Minute davor', schritt: 'Wenn dein Kind heute Nacht wach wird, achte auf die Minute, bevor es richtig weint: Dreht es sich, brummelt es, zieht es die Beine an? Und wenn du wickelst, fühl, ob die Windel noch warm ist.', warum: 'Eine warme, frisch nasse Windel heißt: Das Pipi kam gerade eben. Dann ist gut möglich, dass genau das dein Kind geweckt hat. Ist sie kalt oder trocken, weckt eher etwas anderes.', tipp: 'Morgen früh tippst du nur ein, ob die Windel meist frisch nass war. Eine grobe Erinnerung reicht.' },
+        { titel: 'Wie es sich ankündigt', schritt: 'Heute Nacht wieder auf die Minute davor achten. Gibt es ein Zeichen, das immer wiederkommt? Ein bestimmtes Drehen, ein Geräusch, Füße, die strampeln?', warum: 'Wenn du dieses Zeichen kennst, kannst du in späteren Nächten früher da sein, oft bevor dein Kind ganz wach ist.', tipp: 'Wenn du es nachts vergisst: völlig okay. Dann trägst du „weiß nicht" ein.' },
         { titel: 'Vor dem Einschlafen', schritt: 'Biete kurz vor dem Einschlafen einen Abhalte-Moment an. Gedimmtes Licht, leise, dein Geräusch.', warum: 'Eine leere Blase ist ein Grund weniger, wach zu werden. Manchmal hilft das, manchmal nicht. Beides ist okay.', tipp: 'Wenn dein Kind dabei munter wird: lieber weglassen.' },
         { titel: 'Das Nacht-Set', schritt: 'Leg dir alles griffbereit ans Bett: Töpfchen oder Schüssel, Tuch, Ersatzwindel.', warum: 'Je weniger du nachts aufstehst, desto schneller schlaft ihr wieder ein.', tipp: 'Eine kleine Leselampe mit warmem Licht ist Gold wert.' },
         { titel: 'Einmal nachts anbieten', schritt: 'Wenn dein Kind heute Nacht wach wird und die Windel trocken ist: einmal kurz abhalten, im Halbdunkel, ohne viele Worte. Wenn es protestiert, sofort aufhören.', warum: 'Manche Babys schlafen danach schneller wieder ein, andere nicht. Du findest gerade heraus, was zu euch passt.', tipp: 'Stillen geht vor. Wenn dein Kind trinken will, darf es trinken.' },

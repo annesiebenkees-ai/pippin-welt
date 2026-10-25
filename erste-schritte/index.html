@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Pippins erste Schritte</title>
 <meta name="description" content="Welcher Windelfrei-Weg passt zu euch? Finde deinen Mäuse-Typ und geh sieben kleine Schritte mit der Mama-Maus. Alles bleibt auf deinem Handy." />
-<meta name="theme-color" content="#ead9ee" />
+<meta name="theme-color" content="#ffc6e4" />
 <link rel="manifest" href="manifest.webmanifest" />
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 <link rel="icon" href="icons/icon-192.png" />
@@ -13,22 +13,25 @@
 <meta name="apple-mobile-web-app-title" content="Erste Schritte" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <style>
+@font-face { font-family: 'Bagel'; src: url(fonts/bagel.woff2) format('woff2'); font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Fredoka'; src: url(fonts/fredoka.woff2) format('woff2'); font-weight: 300 700; font-display: swap; }
 @font-face { font-family: 'Nunito'; src: url(fonts/nunito.woff2) format('woff2'); font-weight: 200 900; font-display: swap; }
 
 :root {
-  /* Pippin „Brand A" seit 20.10.2026 (context/design-kits.md): Flieder-Fläche, Bordeaux für Schrift und Knöpfe, Buttergelb als Markierung, Pistazie/Salbei weich */
-  --sand: #ead9ee; --cream: #f6eef7; --karte: #ffffff;
-  --lavendel: #c9a9cf; --lavendel-tief: #63192f; --lavendel-hell: #f5ecf6;
-  --orange: #63192f; --orange-tief: #4a1222; --butter: #f7e3b0;
-  --salbei: #e9efdc; --tinte: #3d2a30; --tinte-weich: #6e5a60; --linie: #e6d6e8;
-  --schatten: 0 10px 30px rgba(99,25,47,.08);
+  /* Pippin „Plakat-Schiene Pink & Tomate" seit 23.10.2026 (context/design-kits.md): Rosa-Fläche, Tomate für Schrift und Knöpfe,
+     Violett als Akzent, Hellrosa ruhig, Flieder weich. Überschriften Bagel Fat One. Variablennamen stammen noch aus Brand A. */
+  --sand: #ffc6e4; --cream: #fff3f8; --karte: #ffffff;
+  --lavendel: #ff4a3d; --lavendel-tief: #ff4a3d; --lavendel-hell: #fff3f8;
+  --orange: #ff4a3d; --orange-tief: #e2342a; --butter: #ffc6e4;
+  --salbei: #e6d3f7; --tinte: #2b1520; --tinte-weich: #7a5a66; --linie: #ffd9ec;
+  --violett: #7a2cff; --rosa: #ffc6e4;
+  --schatten: none;
 }
 body.nacht {
-  --sand: #241a20; --cream: #2d2128; --karte: #33262e;
-  --lavendel: #8e6f8f; --lavendel-tief: #e9c9da; --lavendel-hell: #3d2d37;
-  --orange: #9c4a62; --orange-tief: #b45c75; --butter: #6b5a35;
-  --salbei: #2f3a2c; --tinte: #f1e6ec; --tinte-weich: #c4b3bc; --linie: #4a3843;
+  --sand: #24113f; --cream: #2e1650; --karte: #341a5c;
+  --lavendel: #ff4a3d; --lavendel-tief: #ffc6e4; --lavendel-hell: #3f2170;
+  --orange: #ff4a3d; --orange-tief: #ff6a5f; --butter: #5a2a7a;
+  --salbei: #3f2170; --tinte: #fff3f8; --tinte-weich: #e6d3f7; --linie: #4d2a85;
   --schatten: none;
 }
 * { box-sizing: border-box; }
@@ -40,18 +43,18 @@ body {
   padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
   transition: background .4s, color .4s;
 }
-h1, h2, h3 { font-family: 'Fredoka', 'Nunito', sans-serif; font-weight: 600; line-height: 1.2; margin: 0 0 .5em; }
+h1, h2, h3 { font-family: 'Bagel', 'Nunito', sans-serif; font-weight: 400; line-height: 1.12; margin: 0 0 .5em; color: var(--lavendel-tief); }
 h1 { font-size: 1.9rem; } h2 { font-size: 1.45rem; } h3 { font-size: 1.15rem; }
 p { margin: 0 0 1em; }
 .app { max-width: 520px; margin: 0 auto; padding: 18px 16px 40px; }
 .kopf { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-.kopf img { height: 44px; }
-body.nacht .kopf img.logo { content: url(img/logo-nacht.png); }
+.kopf .logo { font: 400 2rem/1 'Bagel', 'Nunito', sans-serif; color: var(--orange); }
+body.nacht .kopf .logo { color: var(--rosa); }
 .icon-btn { background: none; border: 0; color: var(--tinte-weich); font: inherit; font-size: .9rem; padding: 10px; cursor: pointer; }
 .karte { background: var(--karte); border-radius: 26px; padding: 24px 20px; box-shadow: var(--schatten); margin-bottom: 16px; }
 .karte.weich { background: var(--lavendel-hell); box-shadow: none; }
 .karte.salbei { background: var(--salbei); box-shadow: none; }
-.maus-bild { display: block; width: 72%; max-width: 280px; margin: 0 auto 8px; }
+.maus-bild { display: block; width: 72%; max-width: 280px; margin: 0 auto 8px; background: radial-gradient(closest-side, var(--rosa), rgba(255,198,228,.55) 60%, rgba(255,198,228,0)); border-radius: 50%; }
 body.nacht .maus-bild { filter: brightness(.85); }
 .klein { font-size: .9rem; color: var(--tinte-weich); }
 .mitte { text-align: center; }
@@ -61,7 +64,7 @@ body.nacht .maus-bild { filter: brightness(.85); }
   padding: 17px 20px; margin: 10px 0; min-height: 58px; text-decoration: none; text-align: center;
 }
 .btn:active { transform: scale(.98); }
-.btn.zweit { background: var(--lavendel-hell); color: var(--lavendel-tief); }
+.btn.zweit { background: var(--butter); color: var(--lavendel-tief); }
 .btn.leise { background: transparent; color: var(--tinte-weich); font-weight: 600; min-height: 48px; }
 .fortschritt { height: 6px; background: var(--lavendel-hell); border-radius: 3px; overflow: hidden; margin: 4px 0 22px; }
 .fortschritt span { display: block; height: 100%; background: var(--lavendel); transition: width .3s; }
@@ -76,7 +79,7 @@ ul.sparen { list-style: none; padding: 0; margin: 0; }
 ul.sparen li { padding: 8px 0 8px 34px; position: relative; border-bottom: 1px dashed var(--linie); }
 ul.sparen li:last-child { border-bottom: 0; }
 ul.sparen li::before { content: '✕'; position: absolute; left: 6px; color: var(--lavendel-tief); font-weight: 800; }
-.tag-label { font: 600 .85rem 'Fredoka', sans-serif; color: var(--lavendel-tief); text-transform: uppercase; letter-spacing: .06em; }
+.tag-label { font: 800 .8rem 'Nunito', sans-serif; color: var(--lavendel-tief); text-transform: uppercase; letter-spacing: .06em; }
 .punkte { display: flex; gap: 8px; justify-content: center; margin: 4px 0 18px; }
 .punkte i { width: 12px; height: 12px; border-radius: 50%; background: var(--lavendel-hell); }
 .punkte i.fertig { background: var(--lavendel); }
@@ -87,15 +90,15 @@ ul.sparen li::before { content: '✕'; position: absolute; left: 6px; color: var
 .chip.an { border-color: var(--lavendel); background: var(--lavendel-hell); }
 .statistik { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; margin: 12px 0; }
 .statistik div { background: var(--cream); border-radius: 16px; padding: 12px 4px; }
-.statistik b { display: block; font: 600 1.6rem 'Fredoka', sans-serif; color: var(--lavendel-tief); }
+.statistik b { display: block; font: 400 1.6rem 'Bagel', sans-serif; color: var(--lavendel-tief); }
 .statistik span { font-size: .8rem; color: var(--tinte-weich); }
 input[type=text], input[type=email] { width: 100%; border: 2px solid var(--linie); border-radius: 16px; padding: 14px 16px; font: 1rem 'Nunito', sans-serif; background: var(--karte); color: var(--tinte); margin: 6px 0 10px; }
 label.feld { font-weight: 700; font-size: .95rem; }
 .fuss { text-align: center; font-size: .82rem; color: var(--tinte-weich); margin-top: 28px; }
 .fuss a { color: inherit; }
-.zitat { font: 600 1.15rem 'Fredoka', sans-serif; color: var(--lavendel-tief); }
-.markiert { background: linear-gradient(transparent 55%, var(--butter) 55%); padding: 0 2px; }
-.kraftsatz { font: 600 1.3rem/1.4 'Fredoka', sans-serif; color: var(--lavendel-tief); margin: 6px 0 10px; }
+.zitat { font: 400 1.2rem/1.25 'Bagel', sans-serif; color: var(--lavendel-tief); }
+.markiert { display: inline-block; background: var(--orange); color: var(--rosa); border-radius: .16em; padding: .06em .14em .02em; line-height: 1.02; margin: .06em 0; }
+.kraftsatz { font: 400 1.4rem/1.25 'Bagel', sans-serif; color: var(--lavendel-tief); margin: 6px 0 10px; }
 .nachspueren { border-top: 1px dashed var(--linie); padding-top: 12px; margin-top: 14px; font-style: italic; color: var(--tinte-weich); }
 .nachspueren b { font-style: normal; color: var(--lavendel-tief); }
 .versteckt { display: none !important; }

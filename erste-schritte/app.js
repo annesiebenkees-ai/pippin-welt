@@ -28,7 +28,7 @@
     const dunkel = h >= 20 || h < 6 || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
     document.body.classList.toggle('nacht', dunkel);
     const m = document.querySelector('meta[name=theme-color]');
-    if (m) m.content = dunkel ? '#241a20' : '#ead9ee';
+    if (m) m.content = dunkel ? '#24113f' : '#ffc6e4';
   }
   nachtmodus(); setInterval(nachtmodus, 60000);
 
@@ -55,7 +55,7 @@
 
   /* ---------- Bausteine ---------- */
   function kopf(rechts) {
-    return '<div class="kopf"><img class="logo" src="img/logo.png" alt="Pippin">' + (rechts || '') + '</div>';
+    return '<div class="kopf"><span class="logo">Pippin</span>' + (rechts || '') + '</div>';
   }
   function fuss() {
     return '<div class="fuss"><p>' + esc(INHALT.hinweis) + '</p><p><a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></p></div>';
@@ -223,8 +223,8 @@
     const chip = (g, w, t) => '<button class="chip" data-g="' + g + '" data-w="' + w + '">' + t + '</button>';
     return '<p class="klein">Letzte Nacht: Wie oft war dein Kind wach?</p><div class="chips">' +
       chip('wach', '0', 'gar nicht') + chip('wach', '1', 'einmal') + chip('wach', '2', 'zweimal') + chip('wach', '3', 'öfter') + '</div>' +
-      '<p class="klein">Und die Windel beim Aufwachen?</p><div class="chips">' +
-      chip('windel', 'nass', 'meist nass') + chip('windel', 'trocken', 'meist trocken') + chip('windel', 'unklar', 'weiß nicht') + '</div>';
+      '<p class="klein">Und die Windel beim Wickeln?</p><div class="chips">' +
+      chip('windel', 'nass', 'meist frisch nass') + chip('windel', 'trocken', 'meist trocken') + chip('windel', 'unklar', 'weiß nicht') + '</div>';
   }
 
   function gewaehlt(g) { const c = app.querySelector('.chip.an[data-g="' + g + '"]'); return c ? c.dataset.w : null; }
@@ -255,7 +255,7 @@
       const n = S.logs.filter((l) => l.windel === 'nass' || l.windel === 'trocken');
       if (n.length >= 2) {
         const nass = n.filter((l) => l.windel === 'nass').length;
-        if (nass >= Math.ceil(n.length / 2)) return 'In ' + nass + ' von ' + n.length + ' Nächten war die Windel beim Aufwachen meist nass. Gut möglich, dass bei euch die Blase mitweckt. Ein Abhalte-Moment vor dem Schlafen kann sich lohnen.';
+        if (nass >= Math.ceil(n.length / 2)) return 'In ' + nass + ' von ' + n.length + ' Nächten war die Windel beim Wickeln meist frisch nass. Gut möglich, dass bei euch die Blase mitweckt. Ein Abhalte-Moment vor dem Schlafen kann sich lohnen.';
         return 'In den meisten Nächten war die Windel beim Aufwachen eher trocken. Dann weckt bei euch wohl eher etwas anderes — Nähe, Hunger, Entwicklung. Auch das ist gut zu wissen.';
       }
     }
@@ -346,11 +346,11 @@
     const w = weg();
     const c = document.createElement('canvas'); c.width = 1080; c.height = 1920;
     const x = c.getContext('2d');
-    const bild = new Image(); const logo = new Image();
+    const bild = new Image();
     let geladen = 0;
     const fertig = () => { if (++geladen < 2) return; zeichnen(); };
-    bild.onload = logo.onload = fertig; bild.onerror = logo.onerror = fertig;
-    bild.src = w.bild; logo.src = 'img/logo.png';
+    bild.onload = bild.onerror = fertig; bild.src = w.bild;
+    (document.fonts ? document.fonts.load("400 96px Bagel").catch(() => {}) : Promise.resolve()).then(fertig);
 
     function umbruch(text, maxB) {
       const woerter = text.split(' '), zeilen = []; let z = '';
@@ -358,17 +358,18 @@
       if (z) zeilen.push(z); return zeilen;
     }
     function zeichnen() {
-      x.fillStyle = '#ead9ee'; x.fillRect(0, 0, 1080, 1920);
-      x.fillStyle = '#f6eef7'; x.beginPath(); x.arc(540, 820, 430, 0, Math.PI * 2); x.fill();
-      if (logo.naturalWidth) { const lb = 300, lh = lb * logo.naturalHeight / logo.naturalWidth; x.drawImage(logo, 540 - lb / 2, 120, lb, lh); }
+      x.fillStyle = '#ffc6e4'; x.fillRect(0, 0, 1080, 1920);
+      const wolke = x.createRadialGradient(540, 820, 60, 540, 820, 460); wolke.addColorStop(0, 'rgba(255,243,248,1)'); wolke.addColorStop(1, 'rgba(255,243,248,0)');
+      x.fillStyle = wolke; x.beginPath(); x.arc(540, 820, 460, 0, Math.PI * 2); x.fill();
+      x.textAlign = 'center'; x.fillStyle = '#ff4a3d'; x.font = '400 120px Bagel, Nunito, sans-serif'; x.fillText('Pippin', 540, 250);
       if (bild.naturalWidth) { const b = 720, h = b * bild.naturalHeight / bild.naturalWidth; x.drawImage(bild, 540 - b / 2, 820 - h / 2, b, h); }
-      x.textAlign = 'center'; x.fillStyle = '#63192f';
-      x.font = '600 46px Fredoka, Nunito, sans-serif'; x.fillText('Wir sind Team', 540, 1340);
-      x.font = '600 96px Fredoka, Nunito, sans-serif'; const nm = w.name.replace('Die ', ''); const nb = x.measureText(nm).width; x.fillStyle = '#f7e3b0'; x.fillRect(540 - nb / 2 - 14, 1420, nb + 28, 44); x.fillStyle = '#63192f'; x.fillText(nm, 540, 1450);
-      x.fillStyle = '#3d2a30'; x.font = '600 46px Nunito, sans-serif';
+      x.textAlign = 'center'; x.fillStyle = '#ff4a3d';
+      x.font = '800 46px Nunito, sans-serif'; x.fillText('Wir sind Team', 540, 1340);
+      x.font = '400 104px Bagel, Nunito, sans-serif'; const nm = w.name.replace('Die ', ''); const nb = x.measureText(nm).width; x.fillStyle = '#ff4a3d'; x.fillRect(540 - nb / 2 - 24, 1360, nb + 48, 120); x.fillStyle = '#ffc6e4'; x.fillText(nm, 540, 1455);
+      x.fillStyle = '#2b1520'; x.font = '600 46px Nunito, sans-serif';
       umbruch(w.teilen, 860).forEach((z, i) => x.fillText(z, 540, 1560 + i * 62));
-      x.fillStyle = '#63192f'; x.font = '700 40px Nunito, sans-serif'; x.fillText('Welcher Weg passt zu euch?', 540, 1760);
-      x.fillStyle = '#6e5a60'; x.font = '600 38px Nunito, sans-serif'; x.fillText('pippin-welt.de/erste-schritte', 540, 1820);
+      x.fillStyle = '#ff4a3d'; x.font = '800 40px Nunito, sans-serif'; x.fillText('Welcher Weg passt zu euch?', 540, 1760);
+      x.fillStyle = '#7a5a66'; x.font = '700 38px Nunito, sans-serif'; x.fillText('pippin-welt.de/erste-schritte', 540, 1820);
       c.toBlob(async (blob) => {
         const datei = new File([blob], 'pippin-' + S.weg + '.png', { type: 'image/png' });
         if (navigator.canShare && navigator.canShare({ files: [datei] })) {
