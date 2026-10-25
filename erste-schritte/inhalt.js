@@ -313,5 +313,5 @@ const INHALT = {
   bauch: 'Oft weiß dein Bauch längst, was dein Kopf gerade erst liest.',
 
   hinweis: 'Pippins erste Schritte ersetzt keine Hebamme und keine Kinderärztin. Wenn dir an deinem Kind etwas Sorgen macht — Schmerzen beim Pipi machen, Blut, Fieber oder etwas, das sich nicht richtig anfühlt — frag dort nach.',
-  datenschutz: 'Alles, was du hier eingibst, bleibt auf deinem Handy. Nichts wird an uns oder an andere geschickt. Nur wenn du unten freiwillig deine E-Mail einträgst, geht diese an unseren Newsletter-Dienst.'
+  datenschutz: 'Alles, was du hier eingibst, bleibt auf deinem Handy. Nichts wird an uns oder an andere geschickt. Nur deinen Vornamen und deine E-Mail schicken wir an unseren Newsletter-Dienst, damit du die Webinar-Einladung und Pippins Post bekommst.'
 };

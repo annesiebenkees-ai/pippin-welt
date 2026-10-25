@@ -1,6 +1,6 @@
 /* Pippins erste Schritte — App-Logik.
    Alles bleibt im Browser (localStorage). Kein Server, keine KI-Anfrage, kein Tracking.
-   Einzige Ausnahme: das freiwillige E-Mail-Formular (Brevo, Double-Opt-in). */
+   Einzige Ausnahme: Vorname und E-Mail vor dem Ergebnis (Pflicht seit 25.10.2026, Brevo, Double-Opt-in). */
 (function () {
   'use strict';
 
@@ -96,9 +96,41 @@
     app.querySelectorAll('.wahl').forEach((b) => b.addEventListener('click', () => {
       b.classList.add('an');
       S.antworten[f.id] = b.dataset.w; sichern();
-      setTimeout(() => (i + 1 < INHALT.fragen.length ? frage(i + 1) : ergebnis(true)), 180);
+      setTimeout(() => (i + 1 < INHALT.fragen.length ? frage(i + 1) : (S.angemeldet ? ergebnis(true) : tor())), 180);
     }));
     an('zurueck', () => frage(i - 1));
+  }
+
+  /* ---------- Vor dem Ergebnis: Vorname + E-Mail sind Pflicht (Anne 25.10.2026) ---------- */
+  function tor() {
+    S.weg = wegBerechnen(S.antworten); sichern();
+    zeigen(kopf() +
+      '<div class="karte mitte">' +
+      '<img class="maus-bild" src="img/face.png" alt="" style="width:40%">' +
+      '<h1>Euer Weg ist fertig.</h1>' +
+      '<p>Trag deinen Vornamen und deine E-Mail ein, dann zeigt dir die Mama-Maus, welcher Weg zu euch passt, und begleitet dich sieben Tage lang.</p>' +
+      '<form id="anmeldung" action="' + BREVO + '" method="POST" target="brevo_iframe" novalidate style="text-align:left">' +
+      '<label class="feld" for="vn">Dein Vorname</label><input type="text" id="vn" name="VORNAME" autocomplete="given-name" required>' +
+      '<label class="feld" for="em">Deine E-Mail</label><input type="email" id="em" name="EMAIL" autocomplete="email" required>' +
+      '<input type="hidden" name="INTERESSE" value="ErsteSchritte-' + esc(S.weg || '') + '">' +
+      '<input type="text" name="email_address_check" value="" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+      '<input type="hidden" name="locale" value="de">' +
+      '<button class="btn" type="submit">Unseren Weg zeigen</button>' +
+      '<p class="klein" id="formfehler"></p>' +
+      '<p class="klein">Damit meldest du dich bei Pippins Newsletter an: die Einladung zum kostenlosen Webinar und ab und zu Post mit Herz. Du bekommst eine Mail zum Bestätigen, abbestellen geht jederzeit mit einem Klick. Mehr in der <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>' +
+      '</form></div>' + fuss());
+    const f = document.getElementById('anmeldung');
+    f.addEventListener('submit', (ev) => {
+      const em = f.querySelector('#em').value.trim();
+      const vn = f.querySelector('#vn').value.trim();
+      if (!vn || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
+        ev.preventDefault();
+        document.getElementById('formfehler').textContent = 'Bitte gib deinen Vornamen und eine gültige E-Mail-Adresse ein.';
+        return;
+      }
+      S.angemeldet = true; sichern();
+      setTimeout(() => ergebnis(false), 400);
+    });
   }
 
   /* ---------- Ergebnis ---------- */
@@ -135,7 +167,7 @@
       kraftsatzKarte(w) +
       (S.start ? '' : '<button class="btn" id="starten">Sieben Tage mit der Mama-Maus starten</button>') +
       '<button class="btn zweit" id="teilen">Unser Ergebnis teilen</button>' +
-      formular('Willst du mehr? Am ' + INHALT.webinar.datum + ' erklärt Anne live, wie Windelfrei, Schlaf und Nähe zusammenhängen — kostenlos.') +
+      (S.angemeldet ? '<div class="karte weich"><h3>📅 ' + esc(INHALT.webinar.zeile) + '</h3><p>Am ' + esc(INHALT.webinar.datum) + ' erklärt Anne live, wie Windelfrei, Schlaf und Nähe zusammenhängen. Die Einladung kommt per Mail.</p></div>' : formular('Willst du mehr? Am ' + INHALT.webinar.datum + ' erklärt Anne live, wie Windelfrei, Schlaf und Nähe zusammenhängen — kostenlos.')) +
       '<button class="btn leise" id="neu">Fragen nochmal beantworten</button>' +
       fuss());
     an('starten', starten);
@@ -281,7 +313,7 @@
       kraftsatzKarte(w, true) +
       (m ? '<div class="karte salbei" style="margin-top:14px"><h3>Was mir bei euch aufgefallen ist</h3><p>' + esc(m) + '</p></div>' : '') +
       '<div class="karte" style="margin-top:14px"><h3>Und jetzt?</h3><p>Wenn du nach dieser Woche merkst, dass du tiefer einsteigen willst: Am ' + esc(INHALT.webinar.datum) + ' erklärt Anne live, wie Windelfrei, Schlaf und Nähe zusammenhängen. Kostenlos.</p></div>' +
-      formular('Sichere dir deinen Platz — die Einladung kommt per Mail.') +
+      (S.angemeldet ? '' : formular('Sichere dir deinen Platz — die Einladung kommt per Mail.')) +
       '<button class="btn zweit" id="teilen">Unser Ergebnis teilen</button>' +
       '<button class="btn leise" id="nochmal">Eine neue Woche starten</button>' + fuss());
     an('mehr', mehr);
@@ -312,7 +344,7 @@
     });
   }
 
-  /* ---------- Anmeldeformular (einzige Datenübertragung, freiwillig) ---------- */
+  /* ---------- Anmeldeformular für alle, die sich noch nicht eingetragen haben (ältere Nutzerinnen) ---------- */
   function formular(einleitung) {
     return '<div class="karte weich" id="formkarte"><h3>📅 ' + esc(INHALT.webinar.zeile) + '</h3><p>' + esc(einleitung) + '</p>' +
       '<form id="anmeldung" action="' + BREVO + '" method="POST" target="brevo_iframe" novalidate>' +
@@ -337,6 +369,7 @@
         document.getElementById('formfehler').textContent = 'Bitte gib deinen Vornamen und eine gültige E-Mail-Adresse ein.';
         return;
       }
+      S.angemeldet = true; sichern();
       setTimeout(() => { f.classList.add('versteckt'); document.getElementById('formdanke').classList.remove('versteckt'); }, 300);
     });
   }
