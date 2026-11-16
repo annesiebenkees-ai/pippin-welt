@@ -17,6 +17,11 @@
   function neu() { return { v: 1, antworten: {}, weg: null, start: null, logs: [], pausen: [], zuletzt: {} }; }
   function sichern() { try { localStorage.setItem(SPEICHER, JSON.stringify(S)); } catch (e) { /* privater Modus: läuft trotzdem, nur ohne Gedächtnis */ } }
   let S = laden();
+  /* Wer von der Webinar-Seite kommt, hat sich dort schon eingetragen: keine zweite Anmeldung (Anne, 16.11.2026) */
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.get('von') === 'webinar') { S.angemeldet = true; sichern(); history.replaceState(null, '', location.pathname); }
+  } catch (e) { /* alte Browser: dann eben mit Formular */ }
 
   const heute = () => { const d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); };
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -61,7 +66,7 @@
     return '<div class="fuss"><p>' + esc(INHALT.hinweis) + '</p><p><a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></p></div>';
   }
   function mausSagt(text) {
-    return '<div class="maus-zeile"><img src="img/face.png" alt=""><div class="sprechblase" style="flex:1">' + text + '</div></div>';
+    return '<div class="maus-zeile"><img src="img/mama-maus.png" alt="Die Mama-Maus"><div class="sprechblase" style="flex:1">' + text + '</div></div>';
   }
   function zeigen(html) {
     app.innerHTML = '<div class="einblenden">' + html + '</div>';
@@ -141,7 +146,7 @@
     S.weg = wegBerechnen(S.antworten); sichern();
     zeigen(kopf() +
       '<div class="karte mitte">' +
-      '<img class="maus-bild" src="img/face.png" alt="" style="width:40%">' +
+      '<img class="maus-bild" src="img/mama-maus.png" alt="Die Mama-Maus" style="width:56%">' +
       '<h1>Euer Weg ist fertig.</h1>' +
       '<p>Trag deinen Vornamen und deine E-Mail ein, dann zeigt dir die Mama-Maus, welcher Weg zu euch passt, und begleitet dich sieben Tage lang.</p>' +
       '<form id="anmeldung" action="' + BREVO + '" method="POST" target="brevo_iframe" novalidate style="text-align:left">' +
