@@ -25,10 +25,10 @@
   /* ---------- Nachtmodus: 20–6 Uhr gedimmt ---------- */
   function nachtmodus() {
     const h = new Date().getHours();
-    const dunkel = h >= 20 || h < 6 || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+    const dunkel = h >= 20 || h < 6;  /* seit 16.11.2026 nicht mehr nach Handy-Dunkelmodus (Anne: dunkles Lila gefällt nicht) */
     document.body.classList.toggle('nacht', dunkel);
     const m = document.querySelector('meta[name=theme-color]');
-    if (m) m.content = dunkel ? '#24113f' : '#ffc6e4';
+    if (m) m.content = dunkel ? '#f4b3d6' : '#ffc6e4';
   }
   nachtmodus(); setInterval(nachtmodus, 60000);
 
@@ -72,31 +72,66 @@
   /* ---------- Startseite ---------- */
   function start() {
     if (S.weg && S.start) return tagesansicht();
+    const st = INHALT.startseite;
     zeigen(kopf() +
-      '<div class="karte mitte">' +
-      '<img class="maus-bild" src="img/face.png" alt="Pippin, die Maus" style="width:46%">' +
-      '<h1>Welcher Windelfrei-Weg passt zu euch?</h1>' +
-      '<p>Zehn kurze Fragen zu eurem echten Alltag. Dann zeigt dir die Mama-Maus euren Weg — und begleitet dich sieben Tage lang mit einem kleinen Schritt pro Tag.</p>' +
-      '<p class="zitat">' + esc(INHALT.bauch) + '</p>' +
+      '<div class="start-held">' +
+      '<span class="start-label">' + esc(st.label) + '</span>' +
+      '<h1>' + esc(st.titel) + '</h1>' +
+      '<p class="start-lead">' + esc(st.lead) + '</p>' +
+      '<img class="start-maus" src="img/pippin-violett.png" alt="Pippin, die kleine Maus">' +
+      '</div>' +
+      '<div class="karte">' +
+      st.stand.map((t) => '<p>' + esc(t) + '</p>').join('') +
+      '<div class="start-schritte">' + st.schritte.map((x, i) => '<div><b>' + (i + 1) + '</b><span>' + esc(x) + '</span></div>').join('') + '</div>' +
       '<button class="btn" id="los">Los geht\'s · 2 Minuten</button>' +
+      '<p class="zitat mitte">' + esc(INHALT.bauch) + '</p>' +
+      '</div>' +
+      '<div class="karte">' +
+      '<h2>' + esc(st.fuerDichTitel) + '</h2><ul class="haken ja">' + st.fuerDich.map((t) => '<li>' + esc(t) + '</li>').join('') + '</ul>' +
+      '<h2 class="abstand-oben">' + esc(st.nichtTitel) + '</h2><ul class="haken nein">' + st.nicht.map((t) => '<li>' + esc(t) + '</li>').join('') + '</ul>' +
+      '<p class="klein">' + esc(st.nichtSchluss) + '</p>' +
+      '<button class="btn" id="los2">Meinen Weg finden</button>' +
       '<p class="klein">🔒 ' + esc(INHALT.datenschutz) + '</p>' +
       '</div>' + fuss());
     an('los', () => frage(0));
+    an('los2', () => frage(0));
   }
 
   /* ---------- Fragen ---------- */
+  /* Fragen und Antworten passend zum Alter (16.11.2026): nur = nur bei diesen Antworten auf „alter“, ohne = nicht bei diesen */
+  function passt(o) {
+    const al = S.antworten.alter;
+    if (!al) return true;
+    if (o.nur && o.nur.indexOf(al) < 0) return false;
+    if (o.ohne && o.ohne.indexOf(al) >= 0) return false;
+    return true;
+  }
+  function fragenListe() { return INHALT.fragen.filter(passt); }
+  function aufraeumen() {
+    INHALT.fragen.forEach((f) => {
+      const w = S.antworten[f.id];
+      if (w === undefined) return;
+      const a = f.antworten.find((x) => x.w === w);
+      if (!passt(f) || (a && !passt(a))) delete S.antworten[f.id];
+    });
+  }
+
   function frage(i) {
-    const f = INHALT.fragen[i];
-    const proz = Math.round((i / INHALT.fragen.length) * 100);
-    zeigen(kopf('<span class="klein">' + (i + 1) + ' von ' + INHALT.fragen.length + '</span>') +
+    const liste = fragenListe();
+    const f = liste[i];
+    const proz = Math.round((i / liste.length) * 100);
+    zeigen(kopf('<span class="klein">' + (i + 1) + ' von ' + liste.length + '</span>') +
       '<div class="fortschritt"><span style="width:' + proz + '%"></span></div>' +
       '<h2>' + esc(f.frage) + '</h2>' +
-      f.antworten.map((a) => '<button class="wahl' + (S.antworten[f.id] === a.w ? ' an' : '') + '" data-w="' + esc(a.w) + '">' + esc(a.t) + '</button>').join('') +
+      f.antworten.filter(passt).map((a) => '<button class="wahl' + (S.antworten[f.id] === a.w ? ' an' : '') + '" data-w="' + esc(a.w) + '">' + esc(a.t) + '</button>').join('') +
       (i > 0 ? '<button class="btn leise" id="zurueck">← zurück</button>' : ''));
     app.querySelectorAll('.wahl').forEach((b) => b.addEventListener('click', () => {
       b.classList.add('an');
-      S.antworten[f.id] = b.dataset.w; sichern();
-      setTimeout(() => (i + 1 < INHALT.fragen.length ? frage(i + 1) : (S.angemeldet ? ergebnis(true) : tor())), 180);
+      S.antworten[f.id] = b.dataset.w;
+      if (f.id === 'alter') aufraeumen();
+      sichern();
+      const n = fragenListe().length;
+      setTimeout(() => (i + 1 < n ? frage(i + 1) : (S.angemeldet ? ergebnis(true) : tor())), 180);
     }));
     an('zurueck', () => frage(i - 1));
   }

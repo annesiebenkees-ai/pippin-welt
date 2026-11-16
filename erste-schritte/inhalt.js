@@ -6,10 +6,11 @@
 const INHALT = {
 
   webinar: {
-    datum: 'Donnerstag, 19. November',
-    zeile: 'Live-Webinar mit Anne am Donnerstag, 19. November, um 9 Uhr (Zoom)'
+    datum: 'Donnerstag, 3. Dezember',
+    zeile: 'Live-Webinar mit Anne am Donnerstag, 3. Dezember, um 9 Uhr (Zoom)'
   },
 
+  /* nur/ohne (16.11.2026): Fragen und Antworten passen sich der ersten Antwort (alter) an, z. B. keine Wickel- oder Nachtfragen in der Schwangerschaft. */
   fragen: [
     { id: 'alter', frage: 'Wie alt ist dein Kind?', antworten: [
       { w: 'schwanger', t: 'Ich bin noch schwanger' },
@@ -20,14 +21,15 @@ const INHALT = {
     { id: 'stand', frage: 'Wo steht ihr mit Windelfrei?', antworten: [
       { w: 'nie', t: 'Höre ich zum ersten Mal richtig' },
       { w: 'gelesen', t: 'Gelesen, noch nicht ausprobiert' },
-      { w: 'abundzu', t: 'Wir probieren es ab und zu' },
-      { w: 'hakt', t: 'Wir halten ab, aber gerade hakt es' },
-      { w: 'raus', t: 'Mein Kind soll aus der Windel raus' } ] },
-    { id: 'naechte', frage: 'Wie sind eure Nächte gerade?', antworten: [
+      { w: 'erfahren', t: 'Ich habe es bei einem älteren Kind schon gemacht', nur: ['schwanger'] },
+      { w: 'abundzu', t: 'Wir probieren es ab und zu', ohne: ['schwanger'] },
+      { w: 'hakt', t: 'Wir halten ab, aber gerade hakt es', ohne: ['schwanger'] },
+      { w: 'raus', t: 'Mein Kind soll aus der Windel raus', nur: ['9-17', '18+'] } ] },
+    { id: 'naechte', ohne: ['schwanger'], frage: 'Wie sind eure Nächte gerade?', antworten: [
       { w: 'ok', t: 'Meistens okay' },
       { w: 'oft', t: 'Mein Kind wird oft wach' },
       { w: 'hart', t: 'Sehr unruhig, wir sind erschöpft' } ] },
-    { id: 'betreuung', frage: 'Wo ist dein Kind tagsüber?', antworten: [
+    { id: 'betreuung', ohne: ['schwanger'], frage: 'Wo ist dein Kind tagsüber?', antworten: [
       { w: 'zuhause', t: 'Bei mir bzw. bei uns zu Hause' },
       { w: 'teils', t: 'Teils Kita oder Tagesmutter' },
       { w: 'ganztags', t: 'Ganztags in der Betreuung' } ] },
@@ -41,18 +43,18 @@ const INHALT = {
       { w: '3', t: 'Geht so' },
       { w: '4', t: 'Ganz gut' },
       { w: '5', t: 'Richtig viel' } ] },
-    { id: 'nervt', frage: 'Was nervt dich am Wickeln am meisten?', antworten: [
+    { id: 'nervt', ohne: ['schwanger'], frage: 'Was nervt dich am Wickeln am meisten?', antworten: [
       { w: 'muell', t: 'Der Müll und die Wäsche' },
       { w: 'protest', t: 'Das Gezappel und der Protest' },
       { w: 'po', t: 'Der wunde Po' },
       { w: 'nachts', t: 'Die volle Windel in der Nacht' },
       { w: 'nichts', t: 'Eigentlich nichts' } ] },
-    { id: 'merken', frage: 'Merkst du manchmal, dass dein Kind gleich Pipi oder Kacka macht?', antworten: [
+    { id: 'merken', ohne: ['schwanger'], frage: 'Merkst du manchmal, dass dein Kind gleich Pipi oder Kacka macht?', antworten: [
       { w: 'nein', t: 'Nein, eigentlich nie' },
       { w: 'aufwachen', t: 'Nach dem Aufwachen manchmal' },
       { w: 'trinken', t: 'Beim oder nach dem Trinken' },
       { w: 'unruhig', t: 'Es wird unruhig oder ganz still' },
-      { w: 'sagt', t: 'Mein Kind sagt oder zeigt es schon' } ] },
+      { w: 'sagt', t: 'Mein Kind sagt oder zeigt es schon', nur: ['9-17', '18+'] } ] },
     { id: 'zeit', frage: 'Wie viel Platz soll das im Alltag haben?', antworten: [
       { w: 'klein', t: 'Ein Moment am Tag reicht mir' },
       { w: 'mittel', t: 'Ein paar Momente, wenn es passt' },
@@ -67,7 +69,7 @@ const INHALT = {
   /* Welche Antwort zählt für welchen Weg (Punkte). Gleichstand: Reihenfolge in INHALT.wege. */
   punkte: {
     alter:     { schwanger: { morgenmaus: 3 }, '0-3': { morgenmaus: 2, nachtmaus: 1 }, '4-8': { nestmaus: 1, nachtmaus: 1 }, '9-17': { nestmaus: 1, mutmaus: 1 }, '18+': { entdeckermaus: 12 } },
-    stand:     { nie: { morgenmaus: 3 }, gelesen: { morgenmaus: 2, nestmaus: 1 }, abundzu: { nestmaus: 3 }, hakt: { mutmaus: 5 }, raus: { entdeckermaus: 5 } },
+    stand:     { nie: { morgenmaus: 3 }, gelesen: { morgenmaus: 2, nestmaus: 1 }, erfahren: { morgenmaus: 2, nestmaus: 2 }, abundzu: { nestmaus: 3 }, hakt: { mutmaus: 5 }, raus: { entdeckermaus: 5 } },
     naechte:   { ok: {}, oft: { nachtmaus: 2 }, hart: { nachtmaus: 3, morgenmaus: 1 } },
     betreuung: { zuhause: {}, teils: { nestmaus: 3 }, ganztags: { nestmaus: 4 } },
     partner:   { mit: {}, skeptisch: { morgenmaus: 1 }, allein: { morgenmaus: 1 } },
@@ -308,6 +310,30 @@ const INHALT = {
     nachmittags: 'Bei euch klappt es am ehesten am Nachmittag. Ein ruhiger Moment im Tag — behalte ihn.',
     abends: 'Bei euch klappt es am ehesten abends. Vielleicht passt der Moment vor dem Schlafen gut zu euch.',
     nachts: 'Bei euch klappt es am ehesten nachts. Das ist ungewöhnlich und völlig in Ordnung — dein Kind zeigt dir seinen Rhythmus.'
+  },
+
+  startseite: {
+    label: 'Kostenlos · 7 Tage · auf deinem Handy',
+    titel: 'Welcher Windelfrei-Weg passt zu euch?',
+    lead: 'Ein paar kurze Fragen zu eurem echten Alltag, und die Mama-Maus zeigt dir euren Weg.',
+    stand: [
+      'Du und dein Baby, ihr seid an einem ganz eigenen Punkt. Vielleicht bist du schwanger und möchtest dich in Ruhe vorbereiten. Vielleicht ist dein Baby gerade erst bei dir angekommen. Oder bei euch geht es schon eher darum, dass dein Kind langsam ohne Windel auskommt.',
+      'Wie schön ist es, dann die kleine Mama-Maus ganz dicht bei dir zu haben. Sie erzählt dir, wie sie Pippin begleitet hat, und geht sieben Tage lang mit dir, mit einem kleinen Schritt pro Tag.'
+    ],
+    schritte: ['Ein paar Fragen, etwa zwei Minuten', 'Dein Mäuse-Typ und euer Weg', 'Sieben Tage Begleitung, ein kleiner Schritt pro Tag'],
+    fuerDichTitel: 'Das ist für dich, wenn …',
+    fuerDich: [
+      'du verstehen möchtest, was dein Baby dir zeigt, statt noch einen Plan abzuarbeiten.',
+      'du Windelfrei ausprobieren willst, ohne gleich euer ganzes Leben umzustellen.',
+      'es in euren echten Alltag passen soll, mit Kita, Nächten und müden Tagen.',
+      'du dir jemanden an deiner Seite wünschst, der dich nicht bewertet.'
+    ],
+    nichtTitel: 'Eher nichts für dich, wenn …',
+    nicht: [
+      'du eine Methode suchst, mit der dein Kind möglichst schnell trocken ist.',
+      'du feste Zeiten und Regeln möchtest, die du abhakst.'
+    ],
+    nichtSchluss: 'Hier gibt es kein Richtig oder Falsch, nur euren Weg.'
   },
 
   bauch: 'Oft weiß dein Bauch längst, was dein Kopf gerade erst liest.',

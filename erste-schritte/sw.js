@@ -1,9 +1,9 @@
 /* Offline-Speicher für Pippins erste Schritte. Version hochzählen, wenn sich Dateien ändern. */
-const VERSION = 'erste-schritte-v11';
+const VERSION = 'erste-schritte-v12';
 const DATEIEN = [
   './', 'index.html', 'app.js', 'inhalt.js', 'manifest.webmanifest',
   'fonts/bagel.woff2', 'fonts/fredoka.woff2', 'fonts/nunito.woff2',
-  'img/logo.png', 'img/logo-nacht.png', 'img/face.png', 'img/morgenmaus.png', 'img/nestmaus.png', 'img/nachtmaus.png', 'img/mutmaus.png', 'img/entdeckermaus.png',
+  'img/logo.png', 'img/logo-nacht.png', 'img/face.png', 'img/pippin-violett.png', 'img/morgenmaus.png', 'img/nestmaus.png', 'img/nachtmaus.png', 'img/mutmaus.png', 'img/entdeckermaus.png',
   'icons/icon-192.png', 'icons/icon-512.png'
 ];
 self.addEventListener('install', (e) => {
