@@ -66,7 +66,7 @@
     return '<div class="fuss"><p>' + esc(INHALT.hinweis) + '</p><p><a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></p></div>';
   }
   function mausSagt(text) {
-    return '<div class="maus-zeile"><img src="img/mama-maus.png" alt="Die Mama-Maus"><div class="sprechblase" style="flex:1">' + text + '</div></div>';
+    return '<div class="maus-zeile"><img src="img/mama-profil.png" alt="Die Mama-Maus"><div class="sprechblase" style="flex:1">' + text + '</div></div>';
   }
   function zeigen(html) {
     app.innerHTML = '<div class="einblenden">' + html + '</div>';
@@ -83,7 +83,7 @@
       '<span class="start-label">' + esc(st.label) + '</span>' +
       '<h1>' + esc(st.titel) + '</h1>' +
       '<p class="start-lead">' + esc(st.lead) + '</p>' +
-      '<img class="start-maus" src="img/pippin-violett.png" alt="Pippin, die kleine Maus">' +
+      '<img class="start-maus" src="img/mama-winkt.png" alt="Die Mama-Maus winkt dir zu">' +
       '</div>' +
       '<div class="karte">' +
       st.stand.map((t) => '<p>' + esc(t) + '</p>').join('') +
@@ -146,7 +146,7 @@
     S.weg = wegBerechnen(S.antworten); sichern();
     zeigen(kopf() +
       '<div class="karte mitte">' +
-      '<img class="maus-bild" src="img/mama-maus.png" alt="Die Mama-Maus" style="width:56%">' +
+      '<img class="maus-bild" src="img/mama-zeigt.png" alt="Die Mama-Maus" style="width:52%;background:none">' +
       '<h1>Euer Weg ist fertig.</h1>' +
       '<p>Trag deinen Vornamen und deine E-Mail ein, dann zeigt dir die Mama-Maus, welcher Weg zu euch passt, und begleitet dich sieben Tage lang.</p>' +
       '<form id="anmeldung" action="' + BREVO + '" method="POST" target="brevo_iframe" novalidate style="text-align:left">' +
